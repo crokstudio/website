@@ -7,8 +7,55 @@ body {
     overflow-x: hidden;
     padding: 0;
     margin: 0;
+    font-family: var(--fontfamily-DMSans);
+    letter-spacing: -0.05em;
 
 }
+
+h1 { 
+    font-size: var(--fontsize-h5);
+    font-weight: var(--fontweight-h1);
+    margin: 0;
+}
+
+h2 { 
+    font-size: var(--fontsize-p); 
+    font-weight: var(--fontweight-h2);
+    margin: 0;
+}
+
+p  { 
+    font-size: var(--fontsize-small); 
+    font-weight: var(--fontweight-p);
+    margin: 0;
+}
+
+/* tablet */    
+@media all and (min-width: 768px) {
+
+h1 { font-size: var(--fontsize-h4); }
+h2 { font-size: var(--fontsize-p); }
+p  { font-size: var(--fontsize-small); }
+
+}
+
+/* intermediate */    
+@media all and (min-width: 1024px) {
+
+h1 { font-size: var(--fontsize-h3); }
+h2 { font-size: var(--fontsize-h5); }
+p  { font-size: var(--fontsize-small); }
+
+}   
+
+/* desktop */    
+@media all and (min-width: 1440px) {
+
+h1 { font-size: var(--fontsize-h1); }
+h2 { font-size: var(--fontsize-h5); }
+p  { font-size: var(--fontsize-p); }
+
+}  
 
 ul {
 
