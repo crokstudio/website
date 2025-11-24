@@ -1,0 +1,188 @@
+.-invisible {
+
+    margin-right: auto;
+    pointer-events: none;
+    
+    opacity: 0;
+
+}
+
+.mainnav__container {
+
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: clip;
+
+}
+
+.mainnav__content {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    position: relative;
+
+}
+
+.mainnav__bar {
+
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2;
+
+}
+
+.mainnav__icon {
+
+    margin-left: auto;
+    padding: var(--spacing-m);
+    cursor: pointer;
+
+}
+
+.mainnav__icon::after {
+
+    content: "menu ";
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+
+.mainnav__icon:first-child {
+
+    margin-left: 0;
+}
+
+
+/*===================
+= NAVIGATION 
+===================*/
+
+.mainnav__nav {
+
+    width: 100%;
+    height: 100vh;
+
+    position: absolute;
+    right: -100%;
+    z-index: 1;
+
+    background-color: white;
+
+    transition: all 0.3s ease-in-out;
+
+}
+
+.mainnav__list {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: var(--spacing-l);
+
+}
+
+.mainnav__item {
+
+    font-size: 2rem;
+
+}
+
+/* ---- TOGGLE NAVIGATION ---- */
+
+.mainnav__toggle {
+
+    display: none;
+
+}
+
+.mainnav__toggle:checked ~ .mainnav__nav {
+
+    right: 0;
+    z-index: 1;
+
+}
+
+.mainnav__toggle:checked ~ .mainnav__bar .mainnav__icon::after {
+
+    content: "close";
+
+}
+
+/*===================
+= MEDIA QUERIES
+===================*/
+
+@media all and (min-width: 768px) {
+
+    .mainnav__container {
+
+        padding-inline: var(--spacing-xl);
+
+    }
+
+    .mainnav__content {
+
+        flex-direction: row;
+
+    }
+
+    .mainnav__bar {
+
+        justify-content: space-between;
+
+    }
+
+    .mainnav__name {
+
+        padding-block: var(--spacing-l);
+
+    }
+
+    .mainnav__icon {
+
+        display: none !important;
+
+    }
+
+    .mainnav__nav {
+
+        width: 100%;
+        position: absolute;
+        height: auto;
+        right: 0;
+        z-index: 0;
+
+        transition: none;
+
+    }
+
+    .mainnav__list {
+
+        flex-direction: row;
+        gap: var(--spacing-xl);
+
+    }
+
+    .mainnav__item {
+
+        font-size: 1rem;
+
+    }
+
+}

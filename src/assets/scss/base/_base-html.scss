@@ -1,5 +1,11 @@
-* {
-    list-style: none;
+html{
+    background-color: var(--color-white);
+}
+
+body {
+
+    overflow-x: hidden;
+    padding: 0;
     margin: 0;
 
 }
@@ -7,19 +13,12 @@
 ul {
 
     padding: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
-}
-
-html{
-    background-color: var(--color-white);
 }
 
 a{
     text-decoration: none;
-}
-
-body {
-
-    overflow-x: hidden;
-
 }
