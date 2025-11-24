@@ -3,9 +3,15 @@
 /* @use "./base/base-reset.scss" as *;   EXEMPLE */
 
 @use "./base/base-html.scss" as *;
+@use "./base/base-fonts.scss" as *;
 @use "./base/base-grid.scss" as *;
 @use "./base/base-responsive.scss" as *;
+@use "./base/base-sections.scss" as *;
 
+@use "./params/params-colors.scss" as *;
+@use "./params/params-fonts.scss" as *;
 @use "./params/params-icons.scss" as *;
+
+@use "./pages/pages-index.scss" as *;
 
 @use "./partials/partials-mainnav.scss" as *;

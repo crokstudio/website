@@ -1,5 +1,6 @@
 :root {
 
+    --spacing-xxs: 6px;
     --spacing-xs: 9px;
     --spacing-s: 12px;
     --spacing-m: 18px;
@@ -15,7 +16,12 @@
     display: grid;
     grid-template-columns: calc(var(--spacing-l) - var(--spacing-xs)) repeat(5, 1fr) calc(var(--spacing-l) - var(--spacing-xs));
     column-gap: var(--spacing-xs);
+    row-gap: var(--spacing-xl);
 
+}
+
+.grid-layout > * {
+  grid-column: 2 / -2; // All children span the same columns
 }
 
 @media all and (min-width: 768px) {

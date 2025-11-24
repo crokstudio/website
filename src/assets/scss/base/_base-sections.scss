@@ -1,6 +1,6 @@
 :root {
 
-    --section-spacing-mobile: var(--spacing-xl);
+    --section-spacing-mobile: calc(var(--spacing-xl)*2);
     --section-spacing-tablet: calc(var(--spacing-xl)*3);
     --section-spacing-intermediate: calc(var(--spacing-xl)*4);
     --section-spacing-desktop: calc(var(--spacing-xxxl)*4);
@@ -8,13 +8,13 @@
 }
 
 .section{
-    padding-block: var(--section-spacing-mobile);
+    padding-block-start: var(--section-spacing-mobile);
 }
 
 @media(min-width: 768px) {
 
     .section{
-        padding-block: var(--section-spacing-tablet);
+        padding-block-start: var(--section-spacing-tablet);
     }
 
 }
@@ -22,7 +22,7 @@
 @media(min-width: 1024px) {
 
     .section{
-        padding-block: var(--section-spacing-intermediate);
+        padding-block-start: var(--section-spacing-intermediate);
     }
 
 }
@@ -30,7 +30,7 @@
 @media(min-width: 1920px) {
 
     .section{
-        padding-block: var(--section-spacing-desktop);
+        padding-block-start: var(--section-spacing-desktop);
     }
 
 }
