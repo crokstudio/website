@@ -1,0 +1,14 @@
+.street__input:checked ~ div img.e-slickstreet {
+
+    filter: grayscale(100%) sepia(14%) contrast(189%);
+    -webkit-filter: grayscale(100%) sepia(20%) contrast(170%);
+    -moz-filter: grayscale(100%) sepia(14%) contrast(189%);
+
+}
+
+.street__input:checked ~ .section-light .slst__imageMask{
+    -webkit-mask-image: url('../medias/imgs/slst__imageMask.svg');
+    mask-image: url('../medias/imgs/slst__imageMask.svg');
+    mask-repeat: no-repeat;
+    mask-size: cover;
+}

@@ -1,0 +1,52 @@
+:root {
+
+    --spacing-xs: 9px;
+    --spacing-s: 12px;
+    --spacing-m: 18px;
+    --spacing-l: 24px;
+    --spacing-xl: 48px;
+    --spacing-xxl: 64px;
+    --spacing-xxxl: 96px;
+
+}
+
+.grid-layout {
+
+    display: grid;
+    grid-template-columns: calc(var(--spacing-l) - var(--spacing-xs)) repeat(5, 1fr) calc(var(--spacing-l) - var(--spacing-xs));
+    column-gap: var(--spacing-xs);
+
+}
+
+@media all and (min-width: 768px) {
+
+    .grid-layout {
+
+        grid-template-columns: calc(var(--spacing-xl) - var(--spacing-s)) repeat(7, 1fr) calc(var(--spacing-xl) - var(--spacing-s));
+        column-gap: var(--spacing-s);
+    
+    }
+
+}
+
+@media all and (min-width: 1024px) {
+
+    .grid-layout {
+
+        grid-template-columns: calc(var(--spacing-xl) - var(--spacing-m)) repeat(9, 1fr) calc(var(--spacing-xl) - var(--spacing-m));
+        column-gap: var(--spacing-m);
+    
+    }
+
+}
+
+@media all and (min-width: 1440px) {
+
+    .grid-layout {
+
+        grid-template-columns: calc(var(--spacing-xxl) - var(--spacing-l)) repeat(9, 1fr) calc(var(--spacing-xxl) - var(--spacing-l));
+        column-gap: var(--spacing-l);
+    
+    }
+
+}

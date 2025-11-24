@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mate Belgium</title>
+  <script type="module" src="/assets/js/main.bundle.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" href="/assets/medias/imgs/Logo.ico">
+  {% block htmlhead %}{% endblock %}
+</head>
+
+
+<body>
+
+  <input style="display: none;" type="radio" id="slick" class="slick__input" name="slickstreet" checked>
+  <input style="display: none;" type="radio" id="street" class="street__input" name="slickstreet">
+
+  <div class="slickstreet__mobile">
+    <div>
+      <label for="slick" class="slick__label slickstreet__mobileLabel">
+          <p class="slick">slick</p>
+      </label>
+      <label for="street" class="street__label slickstreet__mobileLabel">
+          <p class="street">street</p>
+      </label>
+    </div>
+  </div>
+
+  
+  {% include "partials/mainnav.njk" %}
+  
+  {% if not hideTopSpace %}
+    <div class="topSpace"></div>
+  {% endif %}
+
+  {% block content %}{% endblock %}
+
+  {% include "partials/footer.njk" %}
+
+</body>
+</html>

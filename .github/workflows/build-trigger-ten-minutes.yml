@@ -1,0 +1,13 @@
+name: 10-Minute Netlify Build
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Every 10 minutes (UTC)
+
+jobs:
+  trigger-netlify-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Netlify build hook
+        run: |
+          curl -X POST https://api.netlify.com/build_hooks/68637bff7d3050bfee017920

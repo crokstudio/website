@@ -1,0 +1,98 @@
+:root{
+
+    --roundEdge-height: var(--spacing-s);
+
+    @media all and (min-width: 768px){
+        --roundEdge-height: var(--spacing-l)
+    }
+}
+
+.section-light{
+    background-color: var(--color-white);
+    padding-block: var(--spacing-xxl);;
+    position: relative;
+}
+
+.section-light::after{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: calc((var(--spacing-s) * -1 ) + 1px);
+    width: 100%;
+    height: var(--spacing-s);
+    background-color: var(--color-white);
+    border-end-end-radius: var(--spacing-s);
+    border-end-start-radius: var(--spacing-s);
+}
+
+.section-light::before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: calc((var(--spacing-s) * -1 ) + 1px);
+    width: 100%;
+    height: var(--spacing-s);
+    background-color: var(--color-white);
+    border-start-end-radius: var(--spacing-s);
+    border-start-start-radius: var(--spacing-s);
+}
+
+.section-dark{
+    background-color: var(--color-background-dark);
+    padding-block: var(--roundEdge-height);
+}
+
+.section-dark__schematic {
+
+    background-image: url("../medias/imgs/bg_schematic_dark.png");
+    background-position: center;
+    background-size: contain;
+
+}
+
+.section-dark .coreDM{
+    color: var(--color-grey-500);
+}
+
+.section-dark .subtitle{
+    color: var(--color-white);
+}
+
+@media all and (min-width: 768px) {
+
+    .section-light{
+        padding-block: var(--spacing-xxl);;
+    }
+    
+    .section-light::after{
+        bottom: calc((var(--spacing-l) * -1 ) + 1px);
+        height: var(--spacing-l);
+        border-end-end-radius: var(--spacing-l);
+        border-end-start-radius: var(--spacing-l);
+    }
+    
+    .section-light::before{
+        top: calc((var(--spacing-l) * -1 ) + 1px);
+        height: var(--spacing-l);
+        border-start-end-radius: var(--spacing-l);
+        border-start-start-radius: var(--spacing-l);
+    }
+    
+
+}
+
+.noTop{
+    padding-top: 0;
+}
+
+.noTop::before{
+    display: none;
+}
+
+.noBottom{
+    padding-bottom: 0;
+}
+
+.noBottom::after{
+    display: none;
+}
