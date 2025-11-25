@@ -23,16 +23,18 @@
 }
 
 .carousel__slide {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
     flex: 0 0 100%;             /* don't shrink, don't grow, fixed 300px width */
-    height: auto;
-    aspect-ratio: 4 / 5;         /* maintain 4:5 ratio */
+    height: auto;       
     position: relative;
     overflow: hidden;
 
     cursor: pointer;
 }
 
-.carousel__slide::before {
+.carousel__slide img::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -47,6 +49,7 @@
 .carousel__slide img {
     width: 100%;
     height: 100%;
+    aspect-ratio: 4 / 5;  
     object-fit: cover;       /* preserve aspect, center & crop to fill */
     object-position: center; /* ensure centered cropping */
     display: block;
@@ -55,11 +58,23 @@
     transition: 0.25s ease-in-out filter;
 }
 
-.carousel__slide:hover {
-    &::before {
-        background: rgba(255, 0, 0, 0);  /* remove overlay on hover */
-    }
-    img {
-        filter: none;    /* show color on hover */
-    }
+.carousel__slide img:hover {
+
+    filter: none;    /* show color on hover */
+
+}
+
+.carousel__description {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xxs);
+}
+
+/* ===================================
+=SERVICES
+=================================== */
+
+.services__header {
+    display: flex;
+    flex-direction: row;
 }
