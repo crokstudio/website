@@ -9,3 +9,57 @@
     flex-direction: column;
     gap: var(--spacing-xxs);
 }
+
+/* Carousel */
+.carousel {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-m);
+    overflow-x: auto;           /* enable horizontal scroll */
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    aspect-ratio: auto;          /* remove fixed aspect ratio for flex */
+    padding-top: var(--spacing-s);
+}
+
+.carousel__slide {
+    flex: 0 0 100%;             /* don't shrink, don't grow, fixed 300px width */
+    height: auto;
+    aspect-ratio: 4 / 5;         /* maintain 4:5 ratio */
+    position: relative;
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+.carousel__slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 0, 0, 0.75);  /* adjust color (RGB) and opacity */
+    mix-blend-mode: multiply;              /* or try: overlay, screen, darken */
+    pointer-events: none;
+    z-index: 1;
+
+    transition: 0.25s ease-in-out background;
+}
+
+.carousel__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* preserve aspect, center & crop to fill */
+    object-position: center; /* ensure centered cropping */
+    display: block;
+    filter: grayscale(100%);    
+
+    transition: 0.25s ease-in-out filter;
+}
+
+.carousel__slide:hover {
+    &::before {
+        background: rgba(255, 0, 0, 0);  /* remove overlay on hover */
+    }
+    img {
+        filter: none;    /* show color on hover */
+    }
+}

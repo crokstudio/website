@@ -24,6 +24,7 @@
   "browserslist": ">= 0.5%, not dead",
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-img": "^6.0.4",
     "alpinejs": "^3.14.8",
     "dotenv": "^16.4.7",
     "esbuild": "^0.25.0",

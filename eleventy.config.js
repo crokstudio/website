@@ -2,6 +2,10 @@
 import "dotenv/config";
 //import products from "./src/_data/products.js"; // Use ES module import
 import slugify from "slugify";
+//for image optimization
+import Image from "@11ty/eleventy-img"; 
+//node path module
+import path from "path";
 
 export default async function (eleventyConfig) {
   // create a collection for products
@@ -16,6 +20,35 @@ export default async function (eleventyConfig) {
     });
   });
 
+  eleventyConfig.addNunjucksAsyncShortcode("img", async function (src, alt, sizes = "100vw") {
+    if (!alt) {
+      throw new Error(`Missing ALT text on image: ${src}`);
+    }
+
+    const fullSrc = `./${src}`;
+    const nameWithoutExt = path.parse(src).name;
+
+    // Each image gets its own folder in dist
+    const outputDir = `./dist/assets/medias/img/${nameWithoutExt}/`;
+    const urlPath = `/assets/medias/img/${nameWithoutExt}/`;
+
+    let metadata = await Image(fullSrc, {
+      widths: [360, 768, 1024, 1440],
+      formats: ["webp"],
+      outputDir,
+      urlPath
+    });
+
+    let imageAttributes = {
+      alt,
+      sizes,
+      loading: "lazy",
+      decoding: "async",
+    };
+
+    return Image.generateHTML(metadata, imageAttributes);
+  });
+
   // avoid processing and watching files
   eleventyConfig.ignores.add("./src/assets/**/*");
   eleventyConfig.watchIgnores.add("./src/assets/**/*");
@@ -25,8 +58,8 @@ export default async function (eleventyConfig) {
 
   // copy files
   eleventyConfig.addPassthroughCopy("./src/assets/fonts");
-  eleventyConfig.addPassthroughCopy("./src/assets/img");
-  eleventyConfig.addPassthroughCopy("./src/assets/medias");
+  //eleventyConfig.addPassthroughCopy("./src/assets/medias"); //-- we don't want to copy all medias unoptimized
+  eleventyConfig.addPassthroughCopy("./src/assets/medias/video");
 
   // Eleventy dev server config
   eleventyConfig.setServerOptions({
