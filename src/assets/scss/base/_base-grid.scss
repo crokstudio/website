@@ -45,6 +45,10 @@
     
     }
 
+    .grid-layout > * {
+        grid-column: 3 / -3;
+    }
+
 }
 
 @media all and (min-width: 1024px) {
@@ -53,7 +57,17 @@
 
         grid-template-columns: calc(var(--spacing-xl) - var(--spacing-m)) repeat(9, 1fr) calc(var(--spacing-xl) - var(--spacing-m));
         column-gap: var(--spacing-m);
+        row-gap: calc(var(--spacing-xl) + var(--spacing-l));
     
+    }
+
+    .grid-layout__header {
+        flex-direction: row;
+        justify-content: space-between;
+        
+        p{
+            max-width: 25vw;
+        }
     }
 
 }

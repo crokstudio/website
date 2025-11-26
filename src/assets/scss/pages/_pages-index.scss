@@ -26,7 +26,7 @@
 
     &__desc {
     position: absolute;
-    max-width: 50vw;
+    max-width: calc(50vw - var(--spacing-l));
 
     bottom: var(--spacing-l);
     right: var(--spacing-l);
@@ -56,12 +56,12 @@
     z-index: 2;
     }
 
-  &__indicator {
+    &__indicator {
     display: inline-block;
     width: calc(var(--spacing-xxs)/2);
     height: var(--spacing-s);
     border-radius: var(--spacing-l);
-    background: rgba(255,255,255,0.4);
+    background: var(--color-black-opacity-25);
     transition: all 0.3s;
     opacity: 0.5;
     transform: scaleX(1);
@@ -69,12 +69,55 @@
     &--active {
       height: var(--spacing-l);
       opacity: 1;
-      background: #fff;
+      background: var(--color-white);
       transform: scaleX(1.5);
     }
   }
 }
 
+@media all and (min-width: 768px) {
+
+    .banner {
+        font-size: var(--fontsize-core);
+
+        & img {
+        aspect-ratio: 18/5;
+        }
+        &__desc {
+        max-width: calc(25vw - var(--spacing-l));
+        }
+    }
+
+}
+
+/* Intro */
+
+.grid-layout__header--center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.grid-layout__header--center h1{
+    max-width: 50vw;
+}
+
+@media all and (min-width: 768px) {
+
+    .grid-layout__header--center h1{
+        max-width: none;
+    }
+    
+}
+
+@media all and (min-width: 1024px) {
+
+    .grid-layout__header--center p{
+        max-width: none;
+    }
+
+}
 
 /* Carousel */
 .carousel {
@@ -82,9 +125,7 @@
     flex-direction: row;
     gap: var(--spacing-m);
     overflow-x: auto;           /* enable horizontal scroll */
-    overflow-y: hidden;
     scroll-behavior: smooth;
-    aspect-ratio: auto;          /* remove fixed aspect ratio for flex */
     padding-top: var(--spacing-s);
 }
 
@@ -114,7 +155,7 @@
 
 .carousel__slide img:hover {
 
-    filter: none;    /* show color on hover */
+    filter: none;
 
 }
 
@@ -122,6 +163,54 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xxs);
+}
+
+.carousel--2items{
+    padding-top: 0px;
+}
+
+@media all and (min-width: 768px) {
+
+    .carousel {
+        overflow-x: visible;     
+        gap: var(--spacing-s);       
+    }
+
+    .carousel__slide {
+        flex: auto;
+    }
+
+    .carousel__slide img {
+        aspect-ratio: 1/1;
+    }
+
+    .carousel--2items{
+        overflow-x: auto;
+
+        .carousel__slide {
+            flex: 0 0 50%;
+
+            & img {
+                aspect-ratio: 4/5;
+            }
+        }
+    }
+
+}
+
+@media all and (min-width: 1024px) {
+
+    .carousel--2items {
+
+        h2{
+            font-size: var(--fontsize-p);
+        }
+
+        .carousel__slide {
+            flex: auto;
+        }
+    }
+
 }
 
 /* ===================================
