@@ -6,6 +6,28 @@ permalink: index.html
 
 {% block content %}
 
+    <div class="grid-layout">
+        <div class="banner">
+            <div class="banner__slide banner__slide--active">
+                {% img "src/assets/medias/img/mb01.jpg", "MB-Img-01" %}
+                <div class="banner__desc">Mate, ne se propose pas juste de vendre des vêtements, mais de faire briller des endroits au travers de sa vision.</div>
+            </div>
+            <div class="banner__slide">
+                {% img "src/assets/medias/img/mb02.png", "MB-Img-02" %}
+                <div class="banner__desc">La marche aux Flambeaux est une marche à liège qui nécessitait une identité graphique forte et distinctive. Nous avons accepté la mission et nous avons livré exactement cela.</div>
+            </div>
+            <div class="banner__slide">
+                {% img "src/assets/medias/img/mb03.png", "MB-Img-03" %}
+                <div class="banner__desc">European Running Championships 2025 was a semi & full marathon event stretching from Brussles to Leuven. we set out to capture the dedication that everyone brought to this event.</div>
+            </div>
+            <div class="banner__indicators">
+                <span class="banner__indicator banner__indicator--active"></span>
+                <span class="banner__indicator"></span>
+                <span class="banner__indicator"></span>
+            </div>
+        </div>
+    </div>
+    
     <div class="section grid-layout">
         <div class="grid-layout__header" style="text-align: center;">
             <h1>Bienvenue chez <br> Crok Studio</h1>
@@ -133,14 +155,10 @@ permalink: index.html
                 </div>
 
             </div>
-        </div>
-    </div>
 
-    <div class="section grid-layout">
-        <div class="grid-layout__header">
-            <h1>Découvrez nos services</h1>
-            <p class="fc-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
+
+            <h2 class="fc-50" style="text-align: end;">+ d'infos</h2>
     </div>
 
 {% endblock %}

@@ -1,1 +1,1 @@
-import "./components/video-player.js";
+import "./components/bannerCycle.js";

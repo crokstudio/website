@@ -1,14 +1,80 @@
-.grid-layout__header {
+/* banner */
+
+.banner {
+    position: relative;
+    width: 100%;
+    grid-area: -1 / 1 / 1 / -1;
+
+    &__slide {
+    display: none;
+    flex: 0 0 100%;
+
+    &--active {
+        display: block;
+        position: relative;
+    }
+    }
+
+    & img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 3/5;
+    object-fit: cover;       /* preserve aspect, center & crop to fill */
+    object-position: center; /* ensure centered cropping */
+    display: block;
+    }
+
+    &__desc {
+    position: absolute;
+    max-width: 50vw;
+
+    bottom: var(--spacing-l);
+    right: var(--spacing-l);
+    padding: var(--spacing-s);
+
+    color: var(--color-text-light);
+    background: var(--color-black-opacity-25);
+
+    text-transform: uppercase;
+    font-size: var(--fontsize-small);
+    }
+
+    &__indicators {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-s);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-xxs);
+
+    height: 100%;
+
+    position: absolute;
+    top: 0px;
+
+    padding-left: var(--spacing-l);
+
+    z-index: 2;
+    }
+
+  &__indicator {
+    display: inline-block;
+    width: calc(var(--spacing-xxs)/2);
+    height: var(--spacing-s);
+    border-radius: var(--spacing-l);
+    background: rgba(255,255,255,0.4);
+    transition: all 0.3s;
+    opacity: 0.5;
+    transform: scaleX(1);
+
+    &--active {
+      height: var(--spacing-l);
+      opacity: 1;
+      background: #fff;
+      transform: scaleX(1.5);
+    }
+  }
 }
 
-.grid-layout__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xxs);
-}
 
 /* Carousel */
 .carousel {
@@ -26,24 +92,12 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-s);
-    flex: 0 0 100%;             /* don't shrink, don't grow, fixed 300px width */
+    flex: 0 0 100%;             /* don't shrink, don't grow, stay at 100% */
     height: auto;       
     position: relative;
     overflow: hidden;
 
     cursor: pointer;
-}
-
-.carousel__slide img::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 0, 0, 0.75);  /* adjust color (RGB) and opacity */
-    mix-blend-mode: multiply;              /* or try: overlay, screen, darken */
-    pointer-events: none;
-    z-index: 1;
-
-    transition: 0.25s ease-in-out background;
 }
 
 .carousel__slide img {

@@ -24,6 +24,18 @@
   grid-column: 2 / -2; // All children span the same columns
 }
 
+.grid-layout__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
+}
+
+.grid-layout__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xxs);
+}
+
 @media all and (min-width: 768px) {
 
     .grid-layout {
