@@ -32,7 +32,9 @@ body:has(.mainnav__toggle:checked) {
 
     position: fixed;
     z-index: 1;
-
+    
+    background-color: var(--color-background);
+    box-shadow: 0px 3px 10px -5px rgba(0,0,0,0.45);
 }
 
 .mainnav__content {
@@ -59,7 +61,6 @@ body:has(.mainnav__toggle:checked) {
 
     z-index: 2;
 
-    background-color: var(--color-background);
 
 }
 
