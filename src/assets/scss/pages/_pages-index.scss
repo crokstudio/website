@@ -347,14 +347,33 @@
 }
 
 /* Show the matched content */
+/* ======== OLD ========
 #tab1:checked ~ #content1 { display: flex; }
 #tab2:checked ~ #content2 { display: flex; }
 #tab3:checked ~ #content3 { display: flex; }
+*/
+
+/* ======== NEW ======== */
+.projectSub__input + .tab-content {
+
+    display: flex;
+
+}
 
 /* Optional: highlight active tab */
+/* ======== OLD ========
 #tab1:checked + #tab2 + #tab3 ~ .tab-buttons label[for="tab1"],
 #tab2:checked + #tab3 ~ .tab-buttons label[for="tab2"],
 #tab3:checked ~ .tab-buttons label[for="tab3"] {
   background: var(--color-black);
   color: var(--color-text-light);
+}
+*/
+
+/* ======== NEW ======== */
+.service-content:has(#tab1:checked) .tab-buttons label[for="tab1"],
+.service-content:has(#tab2:checked) .tab-buttons label[for="tab2"],
+.service-content:has(#tab3:checked) .tab-buttons label[for="tab3"] {
+    background: var(--color-black);
+    color: var(--color-text-light);
 }
