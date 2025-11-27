@@ -1,0 +1,27 @@
+/* 1. Opt‑in to animating to/from height:auto */
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+}
+
+/* 3. Animate the *content* of <details>, not the element itself */
+details::details-content {
+  height: 0;
+  overflow: clip; /* avoid content bleeding while animating */
+
+  /* Important: also transition content-visibility discretely */
+  transition:
+    height 250ms ease,
+    content-visibility 250ms ease allow-discrete;
+}
+
+/* 4. When <details open>… animate to auto-height */
+details[open]::details-content {
+  height: auto; /* this is where interpolate-size kicks in */
+}
+
+summary {
+  list-style: none;
+  cursor: pointer;
+}
