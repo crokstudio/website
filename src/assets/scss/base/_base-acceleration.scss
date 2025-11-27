@@ -55,6 +55,9 @@ body {
 
     --nav-transition-duration: calc(0.1s + 99999s * (1 - var(--when-scrolling)));
 
+	--scroll-threshold: 0.05;
+    --scroll-direction-thresholded: calc(var(--scroll-direction) * min(1, (var(--scroll-speed) / var(--scroll-threshold))) );
+
 	
 
 }
