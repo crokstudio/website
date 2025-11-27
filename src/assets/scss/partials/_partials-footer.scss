@@ -35,6 +35,14 @@
 
 }
 
+@media all and (min-width: 1440px) {
+
+    .grid-layout__content--footer{
+        justify-content: center;
+    }
+
+}
+
 .footer__contact-item{
     display: flex;
     flex-direction: column;
@@ -54,6 +62,14 @@
     text-align: center;
 
     padding-bottom: var(--spacing-s);
+}
+
+@media all and (min-width: 1024px) {
+
+    .footer-copyright{
+        font-size: var(--fontsize-p);
+    }
+
 }
 
 .line{
