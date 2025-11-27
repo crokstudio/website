@@ -1,3 +1,10 @@
+body:has(.mainnav__toggle:checked) {
+    overflow: hidden;
+    height: 100vh;
+
+    box-sizing: border-box;
+}
+
 .-invisible {
 
     margin-right: auto;
@@ -7,11 +14,24 @@
 
 }
 
+.-anim__scrollHidden {
+
+    transform: translateY(calc((-100% * var(--scroll-direction)) - 100.1% ));
+    transition-property: transform;
+    transition-duration: .2s;
+    transition-delay: var(--nav-transition-duration);
+    transition-timing-function: ease-in-out;
+
+}
+
 .mainnav__container {
 
     width: 100%;
     box-sizing: border-box;
     overflow-x: clip;
+
+    position: fixed;
+    z-index: 1;
 
 }
 
@@ -38,6 +58,8 @@
     justify-content: center;
 
     z-index: 2;
+
+    background-color: var(--color-background);
 
 }
 
@@ -166,9 +188,11 @@
         position: absolute;
         height: auto;
         right: 0;
-        z-index: 0;
+        z-index: 3;
 
         transition: none;
+
+        background-color: transparent;
 
     }
 
