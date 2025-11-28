@@ -120,9 +120,9 @@ body:has(.mainnav__toggle:checked) {
 
 }
 
-.mainnav__item {
+.mainnav__item h2{
 
-    font-size: 2rem;
+    font-size: var(--fontsize-h4);
 
 }
 
@@ -204,9 +204,19 @@ body:has(.mainnav__toggle:checked) {
 
     }
 
-    .mainnav__item {
+    .mainnav__item h2{
 
-        font-size: 1rem;
+        font-size: var(--fontsize-p);
+
+    }
+
+}
+
+@media all and (min-width: 1024px) {
+
+    .mainnav__item h2{
+
+        font-size: var(--fontsize-h5);
 
     }
 

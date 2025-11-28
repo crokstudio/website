@@ -197,6 +197,10 @@
 
 }
 
+.carousel__slide-img {
+    overflow: hidden;
+}
+
 @media all and (min-width: 768px) {
 
     .carousel {
@@ -236,10 +240,6 @@
         .carousel__slide {
             flex: auto;
         }
-    }
-
-    .carousel__slide-img {
-        overflow: hidden;
     }
 
 }
@@ -283,17 +283,25 @@
   display: none;
 }
 
+@media all and (min-width: 1440px) {
+
+    .service-content {
+        max-width: 40vw;
+    }
+
+}
+
 /* Row of clickable labels */
 .tab-buttons {
   display: flex;
-  padding-top: var(--spacing-xxs);
+  padding-top: var(--spacing-s);
   gap: var(--spacing-xxs);
 }
 
 .tab-buttons label {
   padding: var(--spacing-xxs) var(--spacing-xs);
 
-  //font-size: var(--fontsize-small);
+  font-size: var(--fontsize-small);
 
   border: 1px solid var(--color-black);
   border-radius: var(--spacing-l);
@@ -373,7 +381,18 @@
 /* ======== NEW ======== */
 .service-content:has(#tab1:checked) .tab-buttons label[for="tab1"],
 .service-content:has(#tab2:checked) .tab-buttons label[for="tab2"],
-.service-content:has(#tab3:checked) .tab-buttons label[for="tab3"] {
+.service-content:has(#tab3:checked) .tab-buttons label[for="tab3"],
+.service-content:has(#tab4:checked) .tab-buttons label[for="tab4"],
+.service-content:has(#tab5:checked) .tab-buttons label[for="tab5"],
+.service-content:has(#tab6:checked) .tab-buttons label[for="tab6"],
+.service-content:has(#tab7:checked) .tab-buttons label[for="tab7"],
+.service-content:has(#tab8:checked) .tab-buttons label[for="tab8"],
+.service-content:has(#tab9:checked) .tab-buttons label[for="tab9"],
+.service-content:has(#tab10:checked) .tab-buttons label[for="tab10"],
+.service-content:has(#tab11:checked) .tab-buttons label[for="tab11"],
+.service-content:has(#tab12:checked) .tab-buttons label[for="tab12"],
+.service-content:has(#tab13:checked) .tab-buttons label[for="tab13"] {
     background: var(--color-black);
     color: var(--color-text-light);
 }
+
