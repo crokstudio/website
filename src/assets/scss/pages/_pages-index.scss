@@ -354,7 +354,7 @@
 */
 
 /* ======== NEW ======== */
-.projectSub__input + .tab-content {
+.projectSub__input:checked + .tab-content {
 
     display: flex;
 
