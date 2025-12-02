@@ -8,8 +8,10 @@ import Image from "@11ty/eleventy-img";
 import path from "path";
 
 export default async function (eleventyConfig) {
-  // create a collection for products
-  //eleventyConfig.addGlobalData("products", products); //fix push
+  // Projects collection
+  eleventyConfig.addCollection("projects", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/projects/*.md");
+  });
 
   // Add slug filter to slugify product names for URLs
   eleventyConfig.addFilter("slug", (str) => {
