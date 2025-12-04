@@ -28,7 +28,7 @@
 .grid-layout__header {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xs);
+    gap: var(--spacing-m);
 }
 
 .grid-layout__content {
@@ -51,7 +51,7 @@
     }
 
     .grid-layout__header {
-        gap: var(--spacing-m);
+        gap: var(--spacing-l);
     }
 
 }

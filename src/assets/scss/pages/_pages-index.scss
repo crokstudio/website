@@ -35,7 +35,7 @@
     color: var(--color-text-light);
     background: var(--color-black-opacity-25);
 
-    text-transform: uppercase;
+    //text-transform: uppercase;
     font-size: var(--fontsize-small);
     }
 
@@ -178,14 +178,15 @@
     object-fit: cover;       /* preserve aspect, center & crop to fill */
     object-position: center; /* ensure centered cropping */
     display: block;
-    filter: grayscale(100%);    
+
+    //filter: sepia(100%) brightness(105%) hue-rotate(-48deg) saturate(266%) contrast(532%);
 
     transition: 0.25s ease-in-out;
 }
 
 .carousel__slide img:hover {
 
-    transform: scale(1.125);
+    transform: scale(var(--scale-hover));
     filter: none;
 
 }

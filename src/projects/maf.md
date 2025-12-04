@@ -6,6 +6,7 @@ categories:
   - tag: "identite-graphique"
     label: "Identité Graphique"
 banner: "src/assets/medias/img/maf01.png"
+bannerDesc: "Description de l'image de bannière"
 images:                             # first 2 images are more important than others
   - src: "src/assets/medias/img/maf01.png"
     ratio: "wide"

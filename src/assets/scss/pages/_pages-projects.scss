@@ -89,6 +89,8 @@
     display: flex;
     gap: var(--spacing-s);
 
+    overflow: hidden;
+
 }
 
 .projectCard__image {
@@ -97,6 +99,13 @@
     display: block;
     aspect-ratio: 1/1;
     object-fit: cover;
+
+    transition: all 0.25s ease;
+}
+
+.projectCard__image:hover {
+    transform: scale(var(--scale-hover));
+
 }
 
 .projectCard__content {

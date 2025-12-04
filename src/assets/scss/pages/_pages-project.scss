@@ -2,6 +2,13 @@
     aspect-ratio: 16/9;
 }
 
+.projectPage__header{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
+    align-items: center;
+}
+
 .project-content{
     display: flex;
     flex-direction: column;

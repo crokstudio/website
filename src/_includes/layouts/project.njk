@@ -6,11 +6,14 @@ permalink: "projects/{{ page.fileSlug }}/"
 
 {% block content %}
 
-<div class="banner banner--project">{% img banner, title %}</div>
+<div class="banner banner--project">
+    {% img banner, title %}
+    <!--<div class="banner__desc">{{bannerDesc}}</div>-->
+</div>
 
 <div class="section grid-layout">
     <div class="grid-layout__header grid-layout__header--center">
-        <div>
+        <div class="projectPage__header">
             <h1 class="projectPage__title">{{ title }}</h1>
             <h3 class="projectPage__subtitle">{{ subtitle }}</h3>
         </div>
