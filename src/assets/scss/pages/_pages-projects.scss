@@ -1,4 +1,4 @@
-.projects__filters {
+.projectCards__filters {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-l);
@@ -27,7 +27,7 @@
     cursor: pointer;
 }
 
-.projects__list {
+.projectCards__list {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--spacing-m);
@@ -36,43 +36,64 @@
 }
 
 @media all and (min-width: 768px) {
-    .projects__list {
+    .projectCards__list {
         grid-template-columns: repeat(2, 1fr);
         column-gap: var(--spacing-l);
     }
 }
 
 @media all and (min-width: 1440px) {
-    .projects__list {
+    .projectCards__list {
         grid-template-columns: repeat(3, 1fr);
         column-gap: var(--spacing-l);
     }
 }
 
 /* ensure each li behaves as a grid item */
-.projects__item {
+.projectCards__item {
     width: 100%;
     box-sizing: border-box;
 
     display: none;
 }
 
-.projects__item a {
+.projectCards__item a {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-m);
 }
 
-.project__carrousel {
+.projectCard__carrousel {
     display: flex;
     gap: var(--spacing-s);
 
 }
 
-.project__image {
+.projectCard__image {
     width: 100%;
     height: auto;
     display: block;
     aspect-ratio: 1/1;
     object-fit: cover;
+}
+
+.projectCard__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.projectCard__content div:first-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.projectCard__content div div{
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-xxs);
+
+    font-style: italic;
+
 }

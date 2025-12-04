@@ -17,6 +17,7 @@ permalink: projects.html
     {% endfor %}
 {% endfor %}
 
+{% set projects = collections.projects | sort(attribute='date') | reverse %}
 
 {% extends "layouts/base.njk" %}
 
@@ -37,7 +38,7 @@ permalink: projects.html
                 <input type="checkbox" id="filter-{{ cat.tag }}" class="filters__input" name="projects-filter" checked>
             {% endfor %}
 
-            <div class="projects__filters">
+            <div class="projectCards__filters">
 
                 <h2>Filtrer les projets</h2>
 
@@ -52,19 +53,31 @@ permalink: projects.html
                 </ul>
             </div>
 
-            <div class="project__container">
-                <ul class="projects__list">
-                    {% for project in collections.projects %}
+            <div class="projectCard__container">
+                <ul class="projectCards__list">
+                    {% for project in projects %}
                         {% set categoryTags = [] %}
                         {% for cat in project.data.categories %}
                             {% set categoryTags = categoryTags.concat([cat.tag]) %}
                         {% endfor %}
-                        <li class="{{ categoryTags | join(' ') }} projects__item">
+                        <li class="{{ categoryTags | join(' ') }} projectCards__item">
                             <a href="{{ project.url }}">
-                                <div class="project__carrousel">
-                                    {% img project.data.images[0].src, project.data.title, "project__image" %}
+                                <div class="projectCard__carrousel">
+                                    {% img project.data.images[0].src, project.data.title, "projectCard__image" %}
                                 </div>
-                                <h2>{{ project.data.title }}</h2>
+                                <div class="projectCard__content">
+                                    <div>
+                                        <h2 class="projectCard__title">{{ project.data.title }}</h2>
+                                        <div>
+                                            <p class="projectCard__mounth">{{ project.data.date | monthFrench }}</p>
+                                            <p class="projectCard__year">{{ project.data.date.getFullYear() }}</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="projectCard__subtitle">{{ project.data.subtitle }}</p>
+                                    </div>
+                                </div>
+                                
                             </a>
                         </li>
                     {% endfor %}
@@ -75,14 +88,14 @@ permalink: projects.html
 
     <style>
         {% for cat in allCategories %}
-            #filter-{{ cat.tag }}:checked ~ .projects__filters .filters__label[for="filter-{{ cat.tag }}"] {
+            #filter-{{ cat.tag }}:checked ~ .projectCards__filters .filters__label[for="filter-{{ cat.tag }}"] {
                 background: var(--color-black);
                 color: var(--color-text-light);
             }
         {% endfor %}
 
         {% for cat in allCategories %}
-            #filter-{{ cat.tag }}:checked ~ .project__container .{{ cat.tag }} {
+            #filter-{{ cat.tag }}:checked ~ .projectCard__container .{{ cat.tag }} {
                 display: block;
             }
         {% endfor %}

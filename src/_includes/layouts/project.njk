@@ -10,7 +10,10 @@ permalink: "projects/{{ page.fileSlug }}/"
 
 <div class="section grid-layout">
     <div class="grid-layout__header grid-layout__header--center">
-        <h1>{{ title }}</h1>
+        <div>
+            <h1 class="projectPage__title">{{ title }}</h1>
+            <h3 class="projectPage__subtitle">{{ subtitle }}</h3>
+        </div>
         <p class="fc-50">{{ descriptions[0] }}</p>
     </div>
 </div>

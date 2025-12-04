@@ -1,7 +1,7 @@
 ---
 title: "Marche aux Flambeaux"
+subtitle: "Création de l'habillage visuelle d'un évênement"
 date: 2025-01-01
-year: 2025
 categories:
   - tag: "identite-graphique"
     label: "Identité Graphique"

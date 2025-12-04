@@ -1,7 +1,7 @@
 ---
 title: "Mate Belgium"
+subtitle: "Création d'une collection de vêtements"
 date: 2024-01-01
-year: 2024
 categories:
   - tag: "photo"
     label: "Photo"

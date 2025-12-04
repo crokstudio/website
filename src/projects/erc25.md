@@ -1,7 +1,7 @@
 ---
 title: "European Running Championships 2025"
+subtitle: "Couverture photo d'un évênement de running"
 date: 2025-01-01
-year: 2025
 categories:
   - tag: "photo"
     label: "Photo"

@@ -37,6 +37,15 @@ export default async function (eleventyConfig) {
     });
   });
 
+  // Format month name in French (e.g. "janvier")
+  eleventyConfig.addNunjucksFilter("monthFrench", (dateInput, capitalize = false) => {
+    const d = (dateInput instanceof Date) ? dateInput : new Date(dateInput);
+    if (isNaN(d)) return "";
+    let m = new Intl.DateTimeFormat("fr-FR", { month: "long" }).format(d);
+    if (capitalize) m = m.charAt(0).toUpperCase() + m.slice(1);
+    return m;
+  });
+
   eleventyConfig.addNunjucksAsyncShortcode("img", async function (src, alt, className ="", sizes = "100vw") {
     if (!alt) {
       throw new Error(`Missing ALT text on image: ${src}`);
