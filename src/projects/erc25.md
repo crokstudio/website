@@ -1,7 +1,12 @@
 ---
 title: "European Running Championships 2025"
 date: 2025-01-01
-categories: ["Photo", "Vidéo"]
+year: 2025
+categories:
+  - tag: "photo"
+    label: "Photo"
+  - tag: "video"
+    label: "Vidéo"
 banner: "src/assets/medias/img/erc01.png"
 images:                             # first 2 images are more important than others
   - src: "src/assets/medias/img/erc01.png"

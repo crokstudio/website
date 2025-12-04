@@ -22,7 +22,22 @@ export default async function (eleventyConfig) {
     });
   });
 
-  eleventyConfig.addNunjucksAsyncShortcode("img", async function (src, alt, sizes = "100vw") {
+  // Add groupby filter (returns array of [key, items])
+  eleventyConfig.addNunjucksFilter("groupby", (array, key) => {
+    const map = array.reduce((result, item) => {
+      const keyValue = key.split('.').reduce((obj, k) => (obj && obj[k] !== undefined) ? obj[k] : undefined, item);
+      const kStr = keyValue == null ? '' : String(keyValue);
+      if (!result[kStr]) result[kStr] = [];
+      result[kStr].push(item);
+      return result;
+    }, {});
+    return Object.keys(map).map(k => {
+      const maybeNum = Number(k);
+      return [Number.isNaN(maybeNum) ? k : maybeNum, map[k]];
+    });
+  });
+
+  eleventyConfig.addNunjucksAsyncShortcode("img", async function (src, alt, className ="", sizes = "100vw") {
     if (!alt) {
       throw new Error(`Missing ALT text on image: ${src}`);
     }
@@ -44,6 +59,7 @@ export default async function (eleventyConfig) {
     let imageAttributes = {
       alt,
       sizes,
+      class: className,
       loading: "lazy",
       decoding: "async",
     };

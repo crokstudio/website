@@ -1,7 +1,10 @@
 ---
 title: "Marche aux Flambeaux"
 date: 2025-01-01
-categories: ["Identité Graphique"]
+year: 2025
+categories:
+  - tag: "identite-graphique"
+    label: "Identité Graphique"
 banner: "src/assets/medias/img/maf01.png"
 images:                             # first 2 images are more important than others
   - src: "src/assets/medias/img/maf01.png"

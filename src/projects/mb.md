@@ -1,7 +1,18 @@
 ---
 title: "Mate Belgium"
-date: 2025-01-01
-categories: ["Photo", "Vidéo", "Animation", "Dev. Web", "Identité Graphique"]
+date: 2024-01-01
+year: 2024
+categories:
+  - tag: "photo"
+    label: "Photo"
+  - tag: "video"
+    label: "Vidéo"
+  - tag: "animation"
+    label: "Animation"
+  - tag: "dev-web"
+    label: "Dev. Web"
+  - tag: "identite-graphique"
+    label: "Identité Graphique"
 banner: "src/assets/medias/img/mb01.jpg"
 images:                             # first 2 images are more important than others
   - src: "src/assets/medias/img/mb01.jpg"

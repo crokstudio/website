@@ -1,0 +1,91 @@
+---
+permalink: projects.html
+---
+
+{% set allCategories = [] %}
+{% for project in collections.projects %}
+    {% for cat in project.data.categories %}
+        {% set found = false %}
+        {% for existing in allCategories %}
+            {% if existing.tag == cat.tag %}
+                {% set found = true %}
+            {% endif %}
+        {% endfor %}
+        {% if not found %}
+            {% set allCategories = allCategories.concat([{ tag: cat.tag, label: cat.label }]) %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+    
+    <div class="section grid-layout">
+        <div class="grid-layout__header grid-layout__header--center">
+            <h1>Nos projets</h1>
+            <p class="fc-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p class="fc-50">découvrir v</p>
+        </div>
+    </div>
+
+    <div class="section grid-layout">
+        <div class="grid-layout__content">
+
+            {% for cat in allCategories %}
+                <input type="checkbox" id="filter-{{ cat.tag }}" class="filters__input" name="projects-filter" checked>
+            {% endfor %}
+
+            <div class="projects__filters">
+
+                <h2>Filtrer les projets</h2>
+
+                <ul class="filters__list">
+                    {% for cat in allCategories %}
+                        <li class="filters__item">
+                            <label class="filters__label" for="filter-{{ cat.tag }}">
+                                {{ cat.label }}
+                            </label>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="project__container">
+                <ul class="projects__list">
+                    {% for project in collections.projects %}
+                        {% set categoryTags = [] %}
+                        {% for cat in project.data.categories %}
+                            {% set categoryTags = categoryTags.concat([cat.tag]) %}
+                        {% endfor %}
+                        <li class="{{ categoryTags | join(' ') }} projects__item">
+                            <a href="{{ project.url }}">
+                                <div class="project__carrousel">
+                                    {% img project.data.images[0].src, project.data.title, "project__image" %}
+                                </div>
+                                <h2>{{ project.data.title }}</h2>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        {% for cat in allCategories %}
+            #filter-{{ cat.tag }}:checked ~ .projects__filters .filters__label[for="filter-{{ cat.tag }}"] {
+                background: var(--color-black);
+                color: var(--color-text-light);
+            }
+        {% endfor %}
+
+        {% for cat in allCategories %}
+            #filter-{{ cat.tag }}:checked ~ .project__container .{{ cat.tag }} {
+                display: block;
+            }
+        {% endfor %}
+    </style>
+
+{% endblock %}
