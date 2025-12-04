@@ -28,7 +28,7 @@ body:has(.mainnav__toggle:checked) {
 
     width: 100%;
     box-sizing: border-box;
-    overflow-x: clip;
+    //overflow-x: clip; BREAKS MACOS SAFARI
 
     position: fixed;
     z-index: 1;
