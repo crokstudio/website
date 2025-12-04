@@ -153,6 +153,8 @@
     overflow-x: auto;           /* enable horizontal scroll */
     scroll-behavior: smooth;
     padding-top: var(--spacing-s);
+
+    scroll-snap-type: x mandatory;
 }
 
 .carousel__slide {
@@ -165,6 +167,8 @@
     overflow: hidden;
 
     cursor: pointer;
+
+    scroll-snap-align: center;
 }
 
 .carousel__slide img {

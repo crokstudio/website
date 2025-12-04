@@ -19,7 +19,7 @@
                     </a>
                 </li>
                 -->
-                <li class="mainnav__item">
+                <li class="mainnav__item {% if page.url == '/' %} mainnav__item--active {% endif %}">
                     <a href="/index" class="mainnav__link">
                         <h2>home</h2>
                     </a>
@@ -31,7 +31,7 @@
                     </a>
                 </li>
                 -->
-                <li class="mainnav__item">
+                <li class="mainnav__item {% if page.url == '/projects.html' %} mainnav__item--active {% endif %}">
                     <a href="/projects" class="mainnav__link">
                         <h2>projets</h2>
                     </a>

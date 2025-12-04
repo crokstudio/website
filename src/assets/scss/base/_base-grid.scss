@@ -83,7 +83,7 @@
     .grid-layout {
 
         grid-template-columns: calc(var(--spacing-xxl) - var(--spacing-l)) repeat(9, 1fr) calc(var(--spacing-xxl) - var(--spacing-l));
-        column-gap: var(--spacing-l);
+        column-gap: var(--spacing-xxxl);
     
     }
 

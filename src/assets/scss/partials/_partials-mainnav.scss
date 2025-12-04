@@ -126,6 +126,12 @@ body:has(.mainnav__toggle:checked) {
 
 }
 
+.mainnav__item--active h2{
+
+    text-decoration: underline;
+
+}
+
 /* ---- TOGGLE NAVIGATION ---- */
 
 .mainnav__toggle {
