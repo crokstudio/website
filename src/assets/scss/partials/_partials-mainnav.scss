@@ -76,6 +76,7 @@ body:has(.mainnav__toggle:checked) {
     margin-left: auto;
     padding: var(--spacing-m);
     cursor: pointer;
+    pointer-events: all;
 
 }
 
