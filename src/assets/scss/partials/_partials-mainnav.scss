@@ -61,6 +61,13 @@ body:has(.mainnav__toggle:checked) {
 
     z-index: 2;
 
+    pointer-events: none;
+
+}
+
+.mainnav__bar a{
+
+    pointer-events: all;
 
 }
 
@@ -195,7 +202,6 @@ body:has(.mainnav__toggle:checked) {
         position: absolute;
         height: auto;
         right: 0;
-        z-index: 3;
 
         transition: none;
 

@@ -44,7 +44,7 @@
 .projectCards__list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--spacing-m);
+    gap: var(--spacing-xl);
 
     margin-inline: var(--spacing-m);
     
@@ -150,4 +150,43 @@
         line-height: var(--fontsize-h5);
 
     }
+}
+
+.projectCard__categories {
+
+    margin-block-start: var(--spacing-s);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--spacing-xxs);
+
+}
+
+.projectCard__categories p {
+
+    padding: var(--spacing-xxs) var(--spacing-xs);
+    border: 1px solid var(--color-black);
+    border-radius: var(--spacing-m);
+    font-size: var(--fontsize-small);
+    box-sizing: border-box;
+
+    white-space: nowrap
+
+}
+
+/* ============ Filter ALL ============ */
+
+#filter-all:checked ~ .projectCards__filters .filters__label[for="filter-all"] {
+    background: var(--color-black);
+    color: var(--color-text-light);
+}
+
+#filter-all:checked ~ .projectCard__container .projectCards__item {
+    display: block;
+}
+
+#filter-all:checked ~ .projectCard__container .projectCard__categories p {
+    background: var(--color-black);
+    color: var(--color-text-light);
 }

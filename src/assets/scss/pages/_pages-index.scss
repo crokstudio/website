@@ -288,11 +288,41 @@
   display: none;
 }
 
+.service-content {
+    padding-block: var(--spacing-s);
+}
+
 @media all and (min-width: 1440px) {
 
     .service-content {
         max-width: 40vw;
     }
+
+}
+
+.service__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+
+    padding-inline: var(--spacing-s);
+}
+
+.service__item {
+
+    font-size: var(--fontsize-core);
+
+}
+
+.service__item p:first-child {
+
+    font-weight: 600;
+
+}
+
+.service__item p:last-child {
+
+    
 
 }
 

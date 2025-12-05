@@ -34,8 +34,9 @@ permalink: projects.html
     <div class="section grid-layout">
         <div class="grid-layout__content">
 
+                <input type="checkbox" id="filter-all" class="filters__input" name="projects-filter" checked>
             {% for cat in allCategories %}
-                <input type="checkbox" id="filter-{{ cat.tag }}" class="filters__input" name="projects-filter" checked>
+                <input type="checkbox" id="filter-{{ cat.tag }}" class="filters__input" name="projects-filter">
             {% endfor %}
 
             <div class="projectCards__filters">
@@ -43,6 +44,11 @@ permalink: projects.html
                 <h2>Filtrer les projets</h2>
 
                 <ul class="filters__list">
+                        <li class="filters__item">
+                            <label class="filters__label" for="filter-all">
+                                Tous
+                            </label>
+                        </li>
                     {% for cat in allCategories %}
                         <li class="filters__item">
                             <label class="filters__label" for="filter-{{ cat.tag }}">
@@ -57,8 +63,10 @@ permalink: projects.html
                 <ul class="projectCards__list">
                     {% for project in projects %}
                         {% set categoryTags = [] %}
+                        {% set categoryNames = [] %}
                         {% for cat in project.data.categories %}
                             {% set categoryTags = categoryTags.concat([cat.tag]) %}
+                            {% set categoryNames = categoryNames.concat([cat.label]) %}
                         {% endfor %}
                         <li class="{{ categoryTags | join(' ') }} projectCards__item">
                             <a href="{{ project.url }}">
@@ -76,6 +84,12 @@ permalink: projects.html
                                     <div>
                                         <p class="projectCard__subtitle">{{ project.data.subtitle }}</p>
                                     </div>
+                                    <div class="projectCard__categories">
+                                        {% for catName in categoryNames %}
+                                            {% set catTag = categoryTags[loop.index0] %}
+                                            <p class="projectCard__cat-{{catTag}}">{{ catName }}</p>
+                                        {% endfor %}
+                                    </div>
                                 </div>
                                 
                             </a>
@@ -92,12 +106,19 @@ permalink: projects.html
                 background: var(--color-black);
                 color: var(--color-text-light);
             }
-        {% endfor %}
 
-        {% for cat in allCategories %}
             #filter-{{ cat.tag }}:checked ~ .projectCard__container .{{ cat.tag }} {
                 display: block;
             }
+
+            #filter-{{ cat.tag }}:checked ~ .projectCard__container .projectCard__cat-{{ cat.tag }} {
+                background: var(--color-black);
+                color: var(--color-text-light);
+            }
+        {% endfor %}
+
+        {% for cat in allCategories %}
+
         {% endfor %}
     </style>
 
