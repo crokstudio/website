@@ -1,24 +1,21 @@
 ---
 title: "Marche aux Flambeaux"
-subtitle: "Création de l'habillage visuelle d'un évênement"
-date: 2025-01-01
+subtitle: "Identité graphique d’évènement"
+date: 2025-02-01
 categories:
   - tag: "identite-graphique"
     label: "Identité Graphique"
-banner: "src/assets/medias/img/maf01.png"
-bannerDesc: "Description de l'image de bannière"
+banner: "src/assets/medias/img/maf_banner.png"
 images:                             # first 2 images are more important than others
-  - src: "src/assets/medias/img/maf01.png"
-    ratio: "wide"
-  - src: "src/assets/medias/img/maf02.png"
-    ratio: "wide"
-  - src: "src/assets/medias/img/maf03.png"
+  - src: "src/assets/medias/img/maf_01.png"
     ratio: "tall"
-  - src: "src/assets/medias/img/maf03.png"
+  - src: "src/assets/medias/img/maf_02.png"
     ratio: "tall"
+  - src: "src/assets/medias/img/maf_03.png"
+    ratio: "wide"
 descriptions:
-  - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-  - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-  - "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  - "Pour ce projet, on a eu l’opportunité de concevoir l’identité visuelle complète de la Marche aux Flambeaux de Bolland, un événement local emblématique qui réunit chaque année des centaines de personnes autour d’une marche nocturne festive."
+  - "L’objectif était de traduire l’esprit convivial et chaleureux de cette tradition à travers une direction artistique à la fois authentique et festive. Nous avons travaillé sur la création des affiches, autocollants et supports de communication destinés à promouvoir l’événement."
+  - "L’identité visuelle repose sur une palette de couleurs chaudes évoquant la lumière des flammes et sur des illustrations simples mais expressives, afin de capter immédiatement l’attention tout en transmettant une sensation de proximité et de fête. Ce projet m’a permis d’explorer la communication visuelle communautaire, en trouvant l’équilibre entre lisibilité, émotion et chaleur."
 layout: "layouts/project.njk"       # important
 ---

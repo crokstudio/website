@@ -26,7 +26,10 @@ permalink: projects.html
     <div class="section grid-layout">
         <div class="grid-layout__header grid-layout__header--center">
             <h1>Nos projets</h1>
-            <p class="fc-50">Reprehenderit qui quis amet sint eu est laborum laborum excepteur reprehenderit incididunt. Esse consectetur qui elit labore tempor nostrud voluptate commodo mollit voluptate. In aute est est quis anim dolor. Labore in est deserunt ad id consequat. Occaecat aute nostrud mollit voluptate ipsum veniam occaecat tempor labore excepteur.</p>
+            <p class="fc-50">Chacun de vos projets est unique pour nous. Une idée qui naît sur un carnet, qui prend vie sous nos caméras, nos écrans, nos mains.
+            <br>Chez Crok Studio, on ne se contente pas de produire des images : on cherche à créer des expériences, des vidéos qui captent, des visuels qui respirent, des designs qui racontent.
+            Ici, vos projets ne sont pas juste des contenus : ce sont des histoires, des émotions.
+            <br>Explorez notre univers, laissez-vous surprendre, et découvrez comment vos idées peuvent prendre vie.</p>
             <h3 class="fc-50">↓ Scroll pour les découvrir ↓</h3>
         </div>
     </div>
@@ -71,7 +74,7 @@ permalink: projects.html
                         <li class="{{ categoryTags | join(' ') }} projectCards__item">
                             <a href="{{ project.url }}">
                                 <div class="projectCard__carrousel">
-                                    {% img project.data.images[0].src, project.data.title, "projectCard__image" %}
+                                    {% img project.data.banner, project.data.title, "projectCard__image" %}
                                 </div>
                                 <div class="projectCard__content">
                                     <div>
