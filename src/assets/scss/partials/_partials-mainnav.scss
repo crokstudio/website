@@ -71,26 +71,34 @@ body:has(.mainnav__toggle:checked) {
 
 }
 
+.mainnav__logo {
+    width: 120px;
+    height: auto;
+    display: block;
+
+    padding-block: var(--spacing-m);
+}
+
 .mainnav__icon {
 
     margin-left: auto;
-    padding: var(--spacing-m);
+    margin-right: var(--spacing-m);
+    padding: var(--spacing-l);
     cursor: pointer;
     pointer-events: all;
 
+    background-image: url(../medias/svgs/Crokcrok_closed.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    box-sizing: border-box;
 }
 
-.mainnav__icon::after {
-
-    content: "menu ";
-    font-size: 1.5rem;
-    font-weight: bold;
-
-}
 
 .mainnav__icon:first-child {
 
-    margin-left: 0;
+    margin-left: var(--spacing-m);
+    margin-right: auto;
 }
 
 
@@ -155,9 +163,9 @@ body:has(.mainnav__toggle:checked) {
 
 }
 
-.mainnav__toggle:checked ~ .mainnav__bar .mainnav__icon::after {
+.mainnav__toggle:checked ~ .mainnav__bar .mainnav__icon {
 
-    content: "close";
+    background-image: url(../medias/svgs/Crokcrok_opened.svg);
 
 }
 
