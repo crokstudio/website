@@ -2,17 +2,15 @@
 
     display: grid;
     gap: var(--spacing-0);
-    grid-template-columns: repeat( 5, 1fr);
-    margin-inline: var(--spacing-2);
+    grid-template-columns: var(--spacing-2) repeat(5, 1fr) var(--spacing-2);
 
 }
 
-@media all and (max-width: 1024px) {
+@media all and (min-width: 1024px) {
 
     .grid-layout {
         gap: var(--spacing-2);
-        grid-template-columns: repeat( 9, 1fr);
-        margin-inline: var(--spacing-4);
+        grid-template-columns: var(--spacing-4) repeat(9, 1fr) var(--spacing-4);
     }
 
 }
