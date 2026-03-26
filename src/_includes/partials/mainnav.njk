@@ -1,41 +1,43 @@
 <nav class ="mainnav--container">
 
-    <img class="mainnav--logo" src="assets/medias/svg/MateStudio_Logo-eye.svg" alt="Mate Studio Logo"/>
+    <a href="/">
+        <img class="mainnav--logo" src="assets/medias/svg/MateStudio_Logo-eye.svg" alt="Mate Studio Logo"/>
+    </a>
 
     <div class="mainnav--nav">
         <ul class="mainnav--list">
-            <li class="mainnav--item mainnav--item-active">
+            <li class="mainnav--item {% if page.url == '/' %} mainnav--item-active {% endif %}">
                 <p class="f-nav">></p>
-                <a class="f-nav" href="/">Studio</a>
+                <a class="f-nav" href="/index.html#studio">Studio</a>
             </li>
             <li class="mainnav--item">
                 <p class="f-nav">></p>
-                <a class="f-nav" href="/about">Expertise</a>
+                <a class="f-nav" href="/index.html#expertise">Expertise</a>
             </li>
             <li class="mainnav--item">
                 <p class="f-nav">></p>
-                <a class="f-nav" href="/contact">Process</a>
+                <a class="f-nav" href="/index.html#process">Process</a>
             </li>
             <li class="mainnav--item">
                 <p class="f-nav">></p>
-                <a class="f-nav" href="/contact">Compréhension</a>
+                <a class="f-nav" href="/index.html#comprehension">Compréhension</a>
             </li>
         </ul>
         <ul class="mainnav--list">
-            <li class="mainnav--item">
+            <li class="mainnav--item {% if '/projects' in page.url %} mainnav--item-active {% endif %}">
                 <p class="f-nav">></p>
-                <a class="f-nav" href="/about">Projets</a>
+                <a class="f-nav" href="/projects#projects">Projets</a>
             </li>
             <li class="mainnav--item">
                 <p class="f-nav">></p>
-                <a class="f-nav" href="/contact">Partenaires</a>
+                <a class="f-nav" href="/projects#partners">Partenaires</a>
             </li>
         </ul>
 
         <ul class="mainnav--list">
-            <li class="mainnav--item">
+            <li class="mainnav--item {% if page.url == '/contact' %} mainnav--item-active {% endif %}">
                 <p class="f-nav">></p>
-                <a class="f-nav" href="/about">Contact</a>
+                <a class="f-nav" href="/contact">Contact</a>
             </li>
         </ul>
 

@@ -1,7 +1,6 @@
 .section{
-    padding-block-end: var(--spacing-6);
     background-color: var(--color-white-100);
-
+    
     /*
     background-blend-mode: difference;
     */
@@ -12,9 +11,9 @@
 }
 
 @media all and (min-width: 1024px) {
-
+    
     .section{
-        padding-top: var(--spacing-6);
+        padding-block-end: var(--spacing-6);
     }
 
 }
