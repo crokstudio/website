@@ -6,50 +6,6 @@ permalink: "projects/{{ page.fileSlug }}/"
 
 {% block content %}
 
-<div class="banner banner--project">
-    {% img banner, title %}
-    <!--<div class="banner__desc">{{bannerDesc}}</div>-->
-</div>
 
-<div class="section grid-layout">
-    <div class="grid-layout__header grid-layout__header--center">
-        <div class="projectPage__header">
-            <h1 class="projectPage__title">{{ title }}</h1>
-            <h3 class="projectPage__subtitle">{{ subtitle }}</h3>
-        </div>
-        <p class="fc-50">{{ descriptions[0] }}</p>
-    </div>
-</div>
-
-<div class="section grid-layout project-grid">
-    <div class="grid-layout__content">
-        <div class="project-content">
-            {% img images[0].src, title %}
-            <p class="fc-50">{{ descriptions[1] }}</p>
-        </div>
-    </div>
-    
-    <div class="grid-layout__content">
-        <div class="project-content project-content--reverse">
-            {% img images[1].src, title %}
-            <p class="fc-50">{{ descriptions[2] }}</p>
-        </div>
-    </div>
-</div>
-
-<div class="section grid-layout">
-    <div class="grid-layout__content grid-layout__content--rinf">
-        <h1>Gallery</h1>
-        <div class="carousel carousel--project">
-
-            {% for image in images %}
-                <div class="carousel__slide {{ image.ratio }}">
-                    {% img image.src, title %}
-                </div>
-            {% endfor %}
-
-        </div>
-    </div>
-</div>
 
 {% endblock %}

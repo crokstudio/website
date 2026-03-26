@@ -6,19 +6,10 @@
 @use "./base/base-acceleration.scss" as *;
 @use "./base/base-fonts.scss" as *;
 @use "./base/base-grid.scss" as *;
-@use "./base/base-responsive.scss" as *;
 @use "./base/base-sections.scss" as *;
 
 @use "./params/params-colors.scss" as *;
 @use "./params/params-fonts.scss" as *;
-@use "./params/params-icons.scss" as *;
-@use "./params/params-interactive.scss" as *;
-
-@use "./pages/pages-index.scss" as *;
-@use "./pages/pages-project.scss" as *;
-@use "./pages/pages-projects.scss" as *;
 
 @use "./partials/partials-mainnav.scss" as *;
 @use "./partials/partials-footer.scss" as *;
-
-@use "./anims/anims-smooth-details" as *;
