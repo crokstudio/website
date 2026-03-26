@@ -6,6 +6,12 @@ permalink: "projects/{{ page.fileSlug }}/"
 
 {% block content %}
 
-
+    <div class="project--infos grid-layout">
+        <div class="project--infos-main">
+            <h1 class="project--infos-title">{{ title }}</h1>
+            <h3 class="project--infos-description">{{ dates[0] | monthFrench }} - {{ dates[1] | monthFrench }}</h3>
+        </div>
+        <div class="project--infos-secondary"></div>
+    </div>
 
 {% endblock %}
