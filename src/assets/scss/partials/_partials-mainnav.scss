@@ -48,7 +48,7 @@
 
 .mainnav--item:hover a {
 
-    text-decoration: underline;
+    color: var(--color-red-100);
 
 }
 
@@ -107,4 +107,10 @@
 .mainnav--language-item-active {
     font-style: italic;
     font-weight: 400;
+}
+
+.mainnav--language-item:hover a {
+
+    color: var(--color-red-100);
+
 }
