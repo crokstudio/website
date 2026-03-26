@@ -1,11 +1,10 @@
-body {
+* {
     margin: 0;
 }
 
 ul {
 
     padding: 0;
-    margin: 0;
     list-style: none;
 
 }
@@ -15,10 +14,7 @@ a {
     color: inherit;
 }
 
-p{
-    margin: 0;
-}
-
-h2{
-    margin: 0;  
+.fluidimg {
+    max-width: 100%;
+    height: auto;
 }

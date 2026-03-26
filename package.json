@@ -12,7 +12,7 @@
     "scripts:dev": "esbuild --bundle \"./src/assets/js/main.js\" --target=es2020 --outfile=\"./dist/assets/js/main.bundle.js\"",
     "scripts:prod": "esbuild --bundle --minify \"./src/assets/js/main.js\" --target=es2020 --outfile=\"./dist/assets/js/main.bundle.js\"",
     "watch:styles": "onchange \"./src/assets/scss/**/*\" -- npm run styles:dev",
-    "watch:scripts": "onchange \"./src/assets/js/alpine/shop.js\" \"./functions/**/*\" -- npm run scripts:dev",
+    "watch:scripts": "onchange \"./src/assets/js/**/*\" \"./functions/**/*\" -- npm run scripts:dev",
     "build": "npm-run-all clear --parallel eleventy scripts:prod styles:prod",
     "dev": "npm-run-all --parallel server watch:*",
     "netlify": "npm run dev & npx netlify dev"

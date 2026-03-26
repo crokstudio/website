@@ -6,12 +6,79 @@ permalink: "projects/{{ page.fileSlug }}/"
 
 {% block content %}
 
-    <div class="project--infos grid-layout">
-        <div class="project--infos-main">
-            <h1 class="project--infos-title">{{ title }}</h1>
-            <h3 class="project--infos-description">{{ dates[0] | monthFrench }} - {{ dates[1] | monthFrench }}</h3>
+    <div class="section grid-layout">
+        <h1 class="project--title">{{ title }}</h1>
+        <h3 class="project--date fc-50">{{ dates[0] | monthFrench }} - {{ dates[1] | monthFrench }}</h3>
+    </div>
+
+    <div class="section grid-layout">
+        <div class="project--details">
+            <div class="project--info-list">
+                <h5>Client</h5>
+                <p>{{ client }}</p>
+            </div>
+            <div class="project--info-list">
+                <h5>Type</h5>
+                <p>{{ type }}</p>
+            </div>
         </div>
-        <div class="project--infos-secondary"></div>
+        <div class="project--info-list project--services">
+            <h5>Services</h5>
+            <ul class="project--services-list">
+                {% for service in services %}
+                    <li><p>{{ service.label }}</p></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="project--info-list project--skills">
+            <h5>skills</h5>
+            <ul class="project--skills-list">
+                {% if skills[0].softwares %}
+                    <li><p>Softwares : {{ skills[0].softwares }}</p></li>
+                {% endif %}
+                {% if skills[0].hardwares %}
+                    <li><p>Hardwares : {{ skills[0].hardwares }}</p></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="section grid-layout project--sections">
+        {% for section in sections %}
+            {% if section.text is defined %}
+                <div class="project--section-text 
+                            {% if section.justify=="left" %} justify-left 
+                            {% else %} justify-right {% endif %}">
+                    {% if section.title is defined %}
+                        <p>{{ section.title }}</p>
+                    {% endif %}
+                        <p>{{ section.text }}</p>
+                </div>
+            {% elseif section.Himage is defined %}
+            <div class="project--section-Himage">
+                <img class="fluidimg" src="{{ section.Himage }}" alt="">
+            </div>
+
+            {% elseif section.doubleImage is defined %}
+                <div class="project--section-double-image">
+                    <img class="fluidimg" src="{{ section.doubleImage[0] }}" alt="">
+                    <img class="fluidimg" src="{{ section.doubleImage[1] }}" alt="">
+                </div>
+
+            {% elseif section.Vimage is defined %}
+                <div class="project--section-Vimage
+                            {% if section.justify=="left" %} justify-left 
+                            {% else %} justify-right {% endif %}">
+                    <img class="fluidimg" src="{{ section.Vimage }}" alt="">
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="section grid-layout">
+        <div class="project--nextProject">
+            <h3 class="cta-Big">Projet suivant</h3>
+        </div>
     </div>
 
 {% endblock %}

@@ -1,10 +1,141 @@
 .project--infos {
+    grid-area: 1 / 2 / 2 / 11;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+}
+
+.project--title {
+    grid-area: 1 / 2 / 2 / 6;
+}
+
+.project--date {
+
+    grid-area: 1 / 7 / 2 / 11;
+
+    text-align: right;
+    align-self: flex-end;
+
+    font-style: italic;
+    font-weight: 500;
+}
+
+.project--details {
+    grid-area: 1 / 2 / 2 / 4;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+}
+
+.project--services {
+    grid-area: 1 / 4 / 2 / 6;
 
 }
 
-.project--infos-main {
+.project--services-list, .project--skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.project--skills {
+    grid-area: 1 / 6 / 2 / 10;
+
+}
+
+.project--info-list {
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+
+}
+
+/* =======================
+PROJECT SECTIONS
+======================= */
+
+.project--sections {
+
+    row-gap: var(--spacing-4);
+
+}
+
+.justify-left {
+    grid-column-start: 2;
+    grid-column-end: span 5;
+}
+
+.justify-right {
+    grid-column-start: 6;
+    grid-column-end: span 5;
+}
+
+
+/*TEXT SECTIONS*/
+.project--section-text {
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+
+}
+
+/*IMAGE SECTIONS*/
+.project--section-Himage {
+
+    grid-column: 2 / 11;
+}
+
+/*DOUBLE IMAGE SECTIONS*/
+.project--section-double-image {
+
     display: flex;
     flex-direction: row;
+    gap: var(--spacing-2);
 
-    grid-area: 1 / 2 / 2 / 11;
+    grid-column: 2 / 11;
+
+}
+
+.project--section-double-image > img {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/*NEXT PROJECT*/
+.project--nextProject {
+
+    grid-column: 2/11;
+    text-align: right;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-3);
+
+    white-space: nowrap;
+    
+}
+
+.project--nextProject::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-color-100);
+    
+}
+
+.project--nextProject::after {
+    content: "→";
+    display: block;
+    color: var(--text-color-100);
+
+    font-family: var(--font-family-p);
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-h3);
+    
 }

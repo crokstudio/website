@@ -9,7 +9,13 @@
     padding: var(--spacing-1) var(--spacing-4);
 
     background-color: var(--color-white-100);
+    /*
+    mix-blend-mode: difference;
+    */
 
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .mainnav--logo {
@@ -52,22 +58,6 @@
 
 }
 
-.mainnav--item, .mainnav--item p {
-
-    font-family: var(--font-family-p);
-    font-size: var(--spacing-1);
-    font-weight: 700;
-
-    line-height: 100%;
-
-    text-transform: uppercase;
-
-    color: var(--color-black-100);
-
-    margin: 0;
-
-}
-
 .mainnav--item p {
     opacity: 0;
     user-select: none;
@@ -90,21 +80,7 @@
 
 }
 
-.mainnav--language-item {
-    font-family: var(--font-family-p);
-    font-size: var(--spacing-1);
-    font-weight: 700;
-
-    line-height: 100%;
-
-    text-transform: uppercase;
-
-    color: var(--color-black-100);
-
-    margin: 0;
-}
-
-.mainnav--language-item-active {
+.mainnav--language-item-active a {
     font-style: italic;
     font-weight: 400;
 }

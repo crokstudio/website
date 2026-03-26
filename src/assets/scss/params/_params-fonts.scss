@@ -42,7 +42,7 @@
     :root {
     /*p*/
     --font-size-p: var(--spacing-2);
-    --font-weight-p: 400;
+    --font-weight-p: 500;
 
     /*h5*/
     --font-size-h5: var(--spacing-2);
@@ -73,6 +73,20 @@ a {
     line-height: var(--font-line-height-p);
 
     color: var(--text-color-75);
+}
+
+.f-nav {
+
+    font-family: var(--font-family-p);
+    font-size: var(--spacing-1);
+    font-weight: 700;
+
+    line-height: 100%;
+
+    text-transform: uppercase;
+
+    color: var(--color-black-100);
+
 }
 
 p {

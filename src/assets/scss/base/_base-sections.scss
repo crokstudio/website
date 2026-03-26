@@ -1,6 +1,10 @@
 .section{
-    padding-top: var(--spacing-4);
+    padding-block-end: var(--spacing-6);
     background-color: var(--color-white-100);
+
+    /*
+    background-blend-mode: difference;
+    */
 }
 
 .section--dark{
