@@ -10,3 +10,11 @@
 .section--dark{
     background-color: var(--color-black-100);
 }
+
+@media all and (min-width: 1024px) {
+
+    .section{
+        padding-top: var(--spacing-6);
+    }
+
+}
