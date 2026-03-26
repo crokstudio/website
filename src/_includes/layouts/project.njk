@@ -81,4 +81,29 @@ permalink: "projects/{{ page.fileSlug }}/"
         </div>
     </div>
 
+    <div class="section section--dark grid-layout">
+        <h2 class="trust--title">Ils nous ont fait confiance</h2>
+
+        <div class="trust--grid">
+            {{ collection.partners | log}}
+            {% for partner in collections.partners %}
+            <div class="trust--partner">
+                <div class="trust--partner-images" style="background-image: url({{ partner.data.background }});">
+                    <img class="fluidimg" src="{{ partner.data.logo }}" alt="{{ partner.data.name }}">
+                </div>
+                <h5 class="trust--partner-name fc-regular">{{ partner.data.name }}</h5>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+    <div class="section section--dark grid-layout">
+        <div class="project--nextProject">
+            <a href="/contact">
+                <h3 class="cta-Big">Contact</h3>
+            </a>
+        </div>
+    </div>
+
 {% endblock %}
