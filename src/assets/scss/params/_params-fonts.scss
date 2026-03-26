@@ -65,6 +65,16 @@
 
 /* APPLY TEXT PARAMETERS */
 
+a {
+    font-family: var(--font-family-p);
+    font-size: var(--font-size-p);
+    font-weight: var(--font-weight-p);
+
+    line-height: var(--font-line-height-p);
+
+    color: var(--text-color-75);
+}
+
 p {
     font-family: var(--font-family-p);
     font-size: var(--font-size-p);
@@ -72,7 +82,7 @@ p {
 
     line-height: var(--font-line-height-p);
 
-    color: var(--color-black-75);
+    color: var(--text-color-75);
 }
 
 h5 {
@@ -84,7 +94,7 @@ h5 {
 
     text-transform: uppercase;
 
-    color: var(--color-black-100);
+    color: var(--text-color-100);
 }
 
 h4 {
@@ -94,7 +104,7 @@ h4 {
 
     line-height: var(--font-line-height-p);
     
-    color: var(--color-black-75);
+    color: var(--text-color-75);
 }
 
 h3 {
@@ -103,7 +113,7 @@ h3 {
     font-weight: var(--font-weight-h3);
     line-height: var(--font-line-height-p);
     
-    color: var(--color-black-100);
+    color: var(--text-color-100);
     }
 
 h2 {
@@ -113,7 +123,7 @@ h2 {
     line-height: var(--font-line-height-p);
     text-transform: uppercase;
     
-    color: var(--color-black-100);
+    color: var(--text-color-100);
     }
         
 h1 {
@@ -123,17 +133,25 @@ h1 {
     line-height: var(--font-line-height-p);
     text-transform: uppercase;
     
-    color: var(--color-black-100);
+    color: var(--text-color-100);
 }
 
 .fc-100 {
-    color: var(--color-black-100);
+    color: var(--text-color-100);
 }
 
 .fc-75 {
-    color: var(--color-black-75);
+    color: var(--text-color-75);
 }
 
 .fc-50 {
-    color: var(--color-black-50);
+    color: var(--text-color-50);
+}
+
+/* SECTION MODIFIERS */
+
+.section--dark{
+    --text-color-100: var(--text-color-light-100);
+    --text-color-75: var(--text-color-light-75);
+    --text-color-50: var(--text-color-light-50);
 }
