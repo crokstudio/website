@@ -1,0 +1,18 @@
+.grid-layout {
+
+    display: grid;
+    gap: var(--spacing-0);
+    grid-template-columns: repeat( 5, 1fr);
+    margin-inline: var(--spacing-2);
+
+}
+
+@media all and (max-width: 1024px) {
+
+    .grid-layout {
+        gap: var(--spacing-2);
+        grid-template-columns: repeat( 9, 1fr);
+        margin-inline: var(--spacing-4);
+    }
+
+}
