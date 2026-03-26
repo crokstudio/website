@@ -8,8 +8,9 @@
 @use "./base/base-grid.scss" as *;
 @use "./base/base-sections.scss" as *;
 
-@use "./params/params-colors.scss" as *;
+@use "./params/params-spacing.scss" as *;
 @use "./params/params-fonts.scss" as *;
+@use "./params/params-colors.scss" as *;
 
 @use "./partials/partials-mainnav.scss" as *;
 @use "./partials/partials-footer.scss" as *;
