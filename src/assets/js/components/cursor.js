@@ -1,7 +1,12 @@
 const cursor = document.querySelector(".cursor");
 const CURSOR_POSITION_STORAGE_KEY = "mate-cursor-position";
 
-document.documentElement.style.cursor = "none";
+/* Disable default cursor in all forms and for all elements */
+const allElements = document.querySelectorAll('*');
+allElements.forEach(el => {
+  el.style.cursor = "none";
+});
+
 window.addEventListener("DOMContentLoaded", () => {
     document.body.style.cursor = "none";
 });
