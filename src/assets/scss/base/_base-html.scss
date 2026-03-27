@@ -1,9 +1,18 @@
+:root {
+    --mainnav-scroll-offset: var(--spacing-4);
+}
+
 * {
     margin: 0;
 }
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: var(--mainnav-scroll-offset);
+}
+
+[id] {
+    scroll-margin-top: var(--mainnav-scroll-offset);
 }
 
 ul {

@@ -11,4 +11,12 @@
     --spacing-6: calc(121px / 16px * 1rem);
     --spacing-7: calc(182px / 16px * 1rem);
 
+    --spacing-grid-gap: var(--spacing-0);
+
+}
+
+@media all and (min-width: 1024px) {
+    :root {
+        --spacing-grid-gap: var(--spacing-2);
+    }
 }

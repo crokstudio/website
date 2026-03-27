@@ -1,0 +1,38 @@
+/* =======================
+TRUST SECTION
+======================= */
+
+.trust--title {
+    grid-column: 2 / 6;
+    
+    padding-block-start: var(--spacing-6);
+}
+
+.trust--grid {
+    grid-column: 2/10;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-3) var(--spacing-3);
+
+    padding-block-start: var(--spacing-6);
+}
+
+.trust--partner {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+    align-items: center;
+    
+}
+
+.trust--partner-images {
+    padding: var(--spacing-3);
+    aspect-ratio: 3 / 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -21,14 +21,21 @@ if (cursor) {
         y: hasSavedPosition ? parsedPosition.y : 0,
         targetX: hasSavedPosition ? parsedPosition.x : 0,
         targetY: hasSavedPosition ? parsedPosition.y : 0,
-        scale: 1,
-        targetScale: 1,
+        scaleX: 1,
+        scaleY: 1,
+        targetScaleX: 1,
+        targetScaleY: 1,
         isVisible: hasSavedPosition,
+        color: "#ffffff",
     };
 
-    const updateHoverState = (event, nextScale) => {
+    const updateHoverState = (event, nextScaleX, nextScaleY) => {
         if (event.target.closest("a")) {
-            state.targetScale = nextScale;
+            state.targetScaleX = nextScaleX;
+            state.targetScaleY = nextScaleY;
+            /*
+            state.color = nextScale === 0.75 ? "#2DE1B0" : "#ffffff";
+            */
         }
     };
 
@@ -57,26 +64,28 @@ if (cursor) {
     });
 
     document.addEventListener("pointerover", (event) => {
-        updateHoverState(event, 0.75);
+        updateHoverState(event, 0.75, 0.75);
     });
 
     document.addEventListener("pointerout", (event) => {
-        updateHoverState(event, 1);
+        updateHoverState(event, 1, 1);
     });
 
     const render = () => {
         state.x += (state.targetX - state.x) * 0.18;
         state.y += (state.targetY - state.y) * 0.18;
-        state.scale += (state.targetScale - state.scale) * 0.18;
+        state.scaleX += (state.targetScaleX - state.scaleX) * 0.18;
+        state.scaleY += (state.targetScaleY - state.scaleY) * 0.18;
 
         cursor.classList.toggle("cursor--visible", state.isVisible);
-        cursor.style.transform = `translate3d(${state.x}px, ${state.y}px, 0) translate(-50%, -50%) scale(${state.scale})`;
+        cursor.style.transform = `translate3d(${state.x}px, ${state.y}px, 0) translate(-50%, -50%) scaleX(${state.scaleX}) scaleY(${state.scaleY})`;
+        cursor.style.backgroundColor = state.color;
         window.requestAnimationFrame(render);
     };
 
     if (state.isVisible) {
         cursor.classList.add("cursor--visible");
-        cursor.style.transform = `translate3d(${state.x}px, ${state.y}px, 0) translate(-50%, -50%) scale(${state.scale})`;
+        cursor.style.transform = `translate3d(${state.x}px, ${state.y}px, 0) translate(-50%, -50%) scaleX(${state.scaleX}) scaleY(${state.scaleY})`;
     }
 
     window.requestAnimationFrame(render);
