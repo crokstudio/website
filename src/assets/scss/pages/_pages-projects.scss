@@ -33,6 +33,28 @@
     gap: var(--spacing-6);
 }
 
+@supports (animation-timeline: view()) {
+    .projects--item {
+        animation-name: projects-item-scroll;
+        animation-timing-function: ease-out;
+        animation-fill-mode: both;
+        animation-timeline: view();
+        animation-range: cover 0% cover 30%;
+    }
+}
+
+@keyframes projects-item-scroll {
+    from {
+        transform: translateY(calc(2 * var(--spacing-6)));
+    }
+    
+    to {
+        
+        transform: translateY(0px);
+        
+    }
+}
+
 .projects--item a {
     display: grid;
     grid-template-columns: repeat(7, 1fr);

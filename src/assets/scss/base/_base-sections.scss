@@ -17,3 +17,29 @@
     }
 
 }
+
+/*
+
+@supports (animation-timeline: view()) {
+    .section {
+        animation-name: section-scroll;
+        animation-timing-function: ease-out;
+        animation-fill-mode: both;
+        animation-timeline: view();
+        animation-range: cover 0px cover 600px;
+    }
+}
+
+@keyframes section-scroll {
+    from {
+        padding-block-start: (calc(2 * var(--spacing-6)));
+    }
+    
+    to {    
+        
+        padding-block-start: var(--spacing-6);
+        
+    }
+}
+
+*/
