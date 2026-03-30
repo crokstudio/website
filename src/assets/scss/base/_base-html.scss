@@ -11,6 +11,14 @@ html {
     scroll-padding-top: var(--mainnav-scroll-offset);
 }
 
+body {
+    overflow-x: hidden;
+}
+
+body:has(.mainnav--burger-checkbox:checked) {
+    overflow-y: hidden;
+}
+
 [id] {
     scroll-margin-top: var(--mainnav-scroll-offset);
 }

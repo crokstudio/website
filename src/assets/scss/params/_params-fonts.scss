@@ -78,7 +78,7 @@ a {
 .f-nav {
 
     font-family: var(--font-family-p);
-    font-size: var(--spacing-1);
+    font-size: var(--spacing-3);
     font-weight: 700;
 
     line-height: 100%;
@@ -86,6 +86,14 @@ a {
     text-transform: uppercase;
 
     color: var(--color-black-100);
+
+}
+
+@media all and (min-width: 1024px) {
+
+    .f-nav {
+        font-size: var(--spacing-1);
+    }
 
 }
 

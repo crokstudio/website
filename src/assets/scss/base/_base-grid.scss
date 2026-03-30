@@ -58,3 +58,32 @@
     grid-template-columns: repeat(9, 1fr);
 
 }
+
+@media all and (min-width: 1024px) {
+
+    .grid-layout-desktop-3 {
+        gap: var(--spacing-grid-gap);
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-layout-desktop-4 {
+        gap: var(--spacing-grid-gap);
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grid-layout-desktop-5 {
+        gap: var(--spacing-grid-gap);
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .grid-layout-desktop-7 {
+        gap: var(--spacing-grid-gap);
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+    .grid-layout-desktop-9 {
+        gap: var(--spacing-grid-gap);
+        grid-template-columns: repeat(9, 1fr);
+    }
+
+}
