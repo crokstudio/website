@@ -30,7 +30,7 @@ if (cursor) {
     };
 
     const updateHoverState = (event, nextScaleX, nextScaleY) => {
-        if (event.target.closest("a") || event.target.closest("button") || event.target.closest("label")) {
+        if (event.target.closest("a") || event.target.closest("button") || event.target.closest("label") || event.target.closest("input") || event.target.closest("textarea")) {
             state.targetScaleX = nextScaleX;
             state.targetScaleY = nextScaleY;
             /*
@@ -64,7 +64,7 @@ if (cursor) {
     });
 
     document.addEventListener("pointerover", (event) => {
-        updateHoverState(event, 0.75, 0.75);
+        updateHoverState(event, 0.45, 0.45);
     });
 
     document.addEventListener("pointerout", (event) => {
@@ -72,10 +72,10 @@ if (cursor) {
     });
 
     const render = () => {
-        state.x += (state.targetX - state.x) * 0.18;
-        state.y += (state.targetY - state.y) * 0.18;
-        state.scaleX += (state.targetScaleX - state.scaleX) * 0.18;
-        state.scaleY += (state.targetScaleY - state.scaleY) * 0.18;
+        state.x += (state.targetX - state.x) * 0.35;
+        state.y += (state.targetY - state.y) * 0.35;
+        state.scaleX += (state.targetScaleX - state.scaleX) * 0.35;
+        state.scaleY += (state.targetScaleY - state.scaleY) * 0.35;
 
         cursor.classList.toggle("cursor--visible", state.isVisible);
         cursor.style.transform = `translate3d(${state.x}px, ${state.y}px, 0) translate(-50%, -50%) scaleX(${state.scaleX}) scaleY(${state.scaleY})`;

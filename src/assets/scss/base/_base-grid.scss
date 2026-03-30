@@ -27,6 +27,14 @@
 
 }
 
+.grid-layout-4 {
+
+    display: grid;
+    gap: var(--spacing-grid-gap);
+    grid-template-columns: repeat(4, 1fr);
+
+}
+
 .grid-layout-5 {
 
     display: grid;

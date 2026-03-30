@@ -20,44 +20,46 @@ permalink: index.html
 
     </div>
 
-    <div class="section studio--projects grid-layout">
-        <div class="studio--projects-left">
-            <div class="studio--projects-title">
-                <h1 class="studio--projects-title">DERNIERS PROJETS</h1>
-                <h4 class="studio--projects-description">Could be yours</h4>
-            </div>
-            <ul class="studio--projects-list">
-                {% for project in homepageProjects %}
-                    {% if loop.index0 < 2 %}
-                        <li class="studio--projects-item">
-                            <a href="{{ project.url }}">
-                                <img src="{{project.data.cover}}" alt="" class="studio--projects-item-img fluidimg">
-                                <h5 class="studio--projects-item-title">{{project.data.title}}</h5>
-                                <p class="studio--projects-item-description">{{project.data.description}}</p>
-                            </a>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
+    <div class="section studio--projects grid-layout" id="projects">
+        <div class="studio--projects-container">
+            <div class="studio--projects-left">
+                <div class="studio--projects-title">
+                    <h1 class="">DERNIERS PROJETS</h1>
+                    <h4 class="studio--projects-description">Could be yours</h4>
+                </div>
+                <ul class="studio--projects-list">
+                    {% for project in homepageProjects %}
+                        {% if loop.index0 < 2 %}
+                            <li class="studio--projects-item">
+                                <a href="{{ project.url }}">
+                                    <img src="{{project.data.cover}}" alt="" class="studio--projects-item-img fluidimg">
+                                    <h5 class="studio--projects-item-title">{{project.data.title}}</h5>
+                                    <p class="studio--projects-item-description">{{project.data.description}}</p>
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
 
-        </div>
-        <div class="studio--projects-right">
-            <ul class="studio--projects-list">
-                {% for project in homepageProjects %}
-                    {% if loop.index0 >= 2 and loop.index0 < 4 %}
-                        <li class="studio--projects-item">
-                            <a href="{{ project.url }}">
-                                <img src="{{project.data.cover}}" alt="" class="studio--projects-item-img fluidimg">
-                                <h5 class="studio--projects-item-title">{{project.data.title}}</h5>
-                                <p class="studio--projects-item-description">{{project.data.description}}</p>
-                            </a>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <a href="" class="studio--projects-more">
-                <p class="cta">Voir tous les projets</p>
-            </a>
+            </div>
+            <div class="studio--projects-right">
+                <ul class="studio--projects-list">
+                    {% for project in homepageProjects %}
+                        {% if loop.index0 >= 2 and loop.index0 < 4 %}
+                            <li class="studio--projects-item">
+                                <a href="{{ project.url }}">
+                                    <img src="{{project.data.cover}}" alt="" class="studio--projects-item-img fluidimg">
+                                    <h5 class="studio--projects-item-title">{{project.data.title}}</h5>
+                                    <p class="studio--projects-item-description">{{project.data.description}}</p>
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <a href="/projects.html" class="studio--projects-more">
+                    <p class="cta">Voir tous les projets</p>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -113,8 +115,76 @@ permalink: index.html
             </div>
             <div class="process--container grid-layout-9">
                 <p class="process--text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <div class="process--content grid-layout-9">
+                    <ul class="process--steps">
+                        <li class="process--step grid-layout-4">
+                            <h5 class="process--step-number">1</h5>
+                            <div class="process--step-content">
+                                <h5 class="process--step-title">Our Steps</h5>
+                                <p class="process--step-description">We conduct thorough research to understand your needs and goals.</p>
+                            </div>
+                        </li>
+                        <li class="process--step grid-layout-4">
+                            <h5 class="process--step-number">2</h5>
+                            <div class="process--step-content">
+                                <h5 class="process--step-title">Our Steps</h5>
+                                <p class="process--step-description">Our team creates innovative designs that align with your vision.</p>
+                            </div>
+                        </li>
+                        <li class="process--step grid-layout-4">
+                            <h5 class="process--step-number">3</h5>
+                            <div class="process--step-content">
+                                <h5 class="process--step-title">Our Steps</h5>
+                                <p class="process--step-description">We develop high-quality solutions using the latest technologies.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="process--steps">
+                        <li class="process--step grid-layout-4">
+                            <h5 class="process--step-number">1</h5>
+                            <div class="process--step-content">
+                                <h5 class="process--step-title">Our Steps</h5>
+                                <p class="process--step-description">We conduct thorough research to understand your needs and goals.</p>
+                            </div>
+                        </li>
+                        <li class="process--step grid-layout-4">
+                            <h5 class="process--step-number">2</h5>
+                            <div class="process--step-content">
+                                <h5 class="process--step-title">Our Steps</h5>
+                                <p class="process--step-description">Our team creates innovative designs that align with your vision.</p>
+                            </div>
+                        </li>
+                        <li class="process--step grid-layout-4">
+                            <h5 class="process--step-number">3</h5>
+                            <div class="process--step-content">
+                                <h5 class="process--step-title">Our Steps</h5>
+                                <p class="process--step-description">We develop high-quality solutions using the latest technologies.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
+
+    <div class="section section--dark grid-layout" id="vision">
+        <div class="studio--dark">
+            <div class="studio--dark-title">
+                <p>003</p>
+                <h2>Vision</h2>
+            </div>
+            <div class="vision--container grid-layout-9">
+                <p class="vision--text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <div class="vision--content">
+                    {% for person in collections.person %}
+                        <div class="vision--person" style="background-image: url('{{person.data.profilePicture}}')">
+                            <h5 class="vision--person-name">{{person.data.name}}</h5>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 {% endblock %}

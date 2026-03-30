@@ -18,6 +18,11 @@ export default async function (eleventyConfig) {
     return collectionApi.getFilteredByGlob("./src/partners/*.md");
   });
 
+  // Person collection
+  eleventyConfig.addCollection("person", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/person/*.md");
+  });
+
   // Add slug filter to slugify product names for URLs
   eleventyConfig.addFilter("slug", (str) => {
     if (!str) return "";
