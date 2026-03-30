@@ -4,8 +4,6 @@ TRUST SECTION
 
 .trust--title {
     grid-column: 2 / 6;
-    
-    padding-block-start: var(--spacing-6);
 }
 
 .trust--grid {
@@ -16,7 +14,7 @@ TRUST SECTION
     gap: var(--spacing-3) var(--spacing-3);
 
     padding-block-start: var(--spacing-6);
-}
+}   
 
 .trust--partner {
 

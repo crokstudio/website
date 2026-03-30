@@ -31,9 +31,9 @@ permalink: projects.html
             <ul class="projects--list">
                 {% for project in collections.projects %}
                     <li class="projects--item">
-                        <a href="{{ project.url }}">
+                        <a href="{{ project.url }}" class="grid-layout-7">
                         <img src="{{project.data.cover}}" alt="" class="projects--item-img fluidimg">
-                        <div class="projects--item-content">
+                        <div class="projects--item-content grid-layout-7">
                             <h2 class="projects--item-title">{{project.data.title}}</h2>
                             <p class="projects--item-description">{{project.data.description}}</p>
                             <p class="cta projects--item-more">En savoir plus</p>

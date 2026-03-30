@@ -30,7 +30,7 @@ if (cursor) {
     };
 
     const updateHoverState = (event, nextScaleX, nextScaleY) => {
-        if (event.target.closest("a")) {
+        if (event.target.closest("a") || event.target.closest("button") || event.target.closest("label")) {
             state.targetScaleX = nextScaleX;
             state.targetScaleY = nextScaleY;
             /*

@@ -1,3 +1,5 @@
+/* Base grid system */
+
 .grid-layout {
 
     display: grid;
@@ -12,5 +14,39 @@
         gap: var(--spacing-grid-gap);
         grid-template-columns: var(--spacing-4) repeat(9, 1fr) var(--spacing-4);
     }
+
+}
+
+/* Sub grid system */
+
+.grid-layout-3 {
+
+    display: grid;
+    gap: var(--spacing-grid-gap);
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+.grid-layout-5 {
+
+    display: grid;
+    gap: var(--spacing-grid-gap);
+    grid-template-columns: repeat(5, 1fr);
+
+}
+
+.grid-layout-7 {
+
+    display: grid;
+    gap: var(--spacing-grid-gap);
+    grid-template-columns: repeat(7, 1fr);
+
+}
+
+.grid-layout-9 {
+
+    display: grid;
+    gap: var(--spacing-grid-gap);
+    grid-template-columns: repeat(9, 1fr);
 
 }

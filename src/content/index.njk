@@ -6,29 +6,115 @@ permalink: index.html
 
 {% block content %}
 
-    <div id="studio" class="section">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <p>studio</p>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    {% set homepageProjects = collections.projects %}
+
+    <div class="section studio--container" id="studio">
+        <div class="studio--content grid-layout">
+            <p class="studio--location">Studio créatif belge<br>
+            Liège — Bruxelles — Brabant wallon</p>
+            <div class="studio--main grid-layout-5">
+                <img class="studio--logo fluidimg" src="/assets/medias/svg/MateStudio_Logo-studio.svg" alt="Crok logo">
+                <h4 class="studio--description">We design complete creative experiences, handling every step from idea to execution. With less friction, more coherence, and more creative freedom.</h4>
+            </div>
+        </div>
+
     </div>
-    <div id="expertise" class ="section section--dark">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <p>expertise</p>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="section studio--projects grid-layout">
+        <div class="studio--projects-left">
+            <div class="studio--projects-title">
+                <h1 class="studio--projects-title">DERNIERS PROJETS</h1>
+                <h4 class="studio--projects-description">Could be yours</h4>
+            </div>
+            <ul class="studio--projects-list">
+                {% for project in homepageProjects %}
+                    {% if loop.index0 < 2 %}
+                        <li class="studio--projects-item">
+                            <a href="{{ project.url }}">
+                                <img src="{{project.data.cover}}" alt="" class="studio--projects-item-img fluidimg">
+                                <h5 class="studio--projects-item-title">{{project.data.title}}</h5>
+                                <p class="studio--projects-item-description">{{project.data.description}}</p>
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+        </div>
+        <div class="studio--projects-right">
+            <ul class="studio--projects-list">
+                {% for project in homepageProjects %}
+                    {% if loop.index0 >= 2 and loop.index0 < 4 %}
+                        <li class="studio--projects-item">
+                            <a href="{{ project.url }}">
+                                <img src="{{project.data.cover}}" alt="" class="studio--projects-item-img fluidimg">
+                                <h5 class="studio--projects-item-title">{{project.data.title}}</h5>
+                                <p class="studio--projects-item-description">{{project.data.description}}</p>
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <a href="" class="studio--projects-more">
+                <p class="cta">Voir tous les projets</p>
+            </a>
+        </div>
     </div>
-    <div id="process" class="section">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <p>process</p>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="section section--dark grid-layout" id="expertise">
+        <div class="studio--dark">
+            <div class="studio--dark-title">
+                <p>001</p>
+                <h2>Expertise</h2>
+            </div>
+            <ul class="expertise--list">
+                <li class="expertise--item grid-layout-9">
+                    <input type="checkbox" id="expertise--design" class="expertise--item-input">
+                    <label for="expertise--design" class="expertise--item-label">
+                        <h4 class="expertise--name">Design</h4>
+                    </label>
+                    <div class="expertise--item-content">
+                        <p class="div expertise--item-text">Our design approach combines aesthetics with functionality to create compelling visual experiences.</p>
+                        <ul class="expertise--item-skills">
+                            <li><p>UI/UX Design</p></li>
+                            <li><p>Visual Design</p></li>
+                            <li><p>Brand Identity</p></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="expertise--item grid-layout-9">
+                    <input type="checkbox" id="expertise--branding" class="expertise--item-input">
+                    <label for="expertise--branding" class="expertise--item-label">
+                        <h4 class="expertise--name">Branding</h4>
+                    </label>
+                    <div class="expertise--item-content">
+                        <p class="div expertise--item-text">We craft unique brand identities that resonate with audiences and stand out in the market.</p>
+                    </div>
+                </li>
+                <li class="expertise--item grid-layout-9">
+                    <input type="checkbox" id="expertise--web" class="expertise--item-input">
+                    <label for="expertise--web" class="expertise--item-label">
+                        <h4 class="expertise--name">Web Development</h4>
+                    </label>
+                    <div class="expertise--item-content">
+                        <p class="div expertise--item-text">Our web development services deliver responsive, user-friendly websites that drive engagement and conversions.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
     </div>
-    <div id="comprehension" class ="section section--dark">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <p>compréhension</p>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="section section--dark grid-layout" id="process">
+        <div class="studio--dark">
+            <div class="studio--dark-title">
+                <p>002</p>
+                <h2>Process</h2>
+            </div>
+            <div class="process--container grid-layout-9">
+                <p class="process--text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
     </div>
 
 {% endblock %}

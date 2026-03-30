@@ -33,11 +33,6 @@
     gap: var(--spacing-6);
 }
 
-.projects--item a {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: var(--spacing-grid-gap);
-}
 
 .projects--item-img {
     grid-column: 1 / 8;
@@ -47,9 +42,6 @@
 
 .projects--item-content {
     grid-column: 1 / 8;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: var(--spacing-grid-gap);
 }
 
 .projects--item-title {
