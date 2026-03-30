@@ -27,6 +27,7 @@
     width: 100vw;
     height: 100vh;
     z-index: -1;
+    pointer-events: none;
 
     display: flex;
     flex-direction: column;
@@ -36,6 +37,11 @@
 
     background-color: var(--color-white-100);
     transition: all 0.2s ease;
+}
+
+.mainnav--nav:target {
+    left: 0;
+    pointer-events: auto;
 }
 
 .mainnav--list {
@@ -89,30 +95,23 @@
 }
 
 /* BURGER */
-.mainnav--burger-checkbox {
-    display: none;
-}
-
-.mainnav--burger-checkbox:checked ~ .mainnav--nav {
-    left: 0;
-}
-
-.mainnav--burger::before {
-    content: "open";
-}
-
-.mainnav--burger-checkbox:checked ~ .mainnav--burger::before {
-    content: "close";
-}
-
 .mainnav--burger {
     display: block;
 }
 
-.mainnav--hidden {
-    opacity: 0;
-    pointer-events: none;
+.mainnav--nav:target ~ .mainnav--burger-open {
+    display: none;
 }
+
+.mainnav--burger-close {
+    display: none;
+}
+
+.mainnav--nav:target ~ .mainnav--burger-close {
+    display: block;
+}
+
+/* DESKTOP */
 
 @media all and (min-width: 1024px) {
     .mainnav--nav {
@@ -124,6 +123,7 @@
         justify-content: flex-end;
         gap: var(--spacing-5);
         z-index: auto;
+        pointer-events: auto;
     }
 
     .mainnav--list {

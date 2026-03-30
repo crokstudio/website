@@ -1,14 +1,10 @@
 <nav class ="mainnav--container">
 
-    <input type="checkbox" id="mainnav--burger" class="mainnav--burger-checkbox"/>
-
-    <label for="mainnav--burger" class="mainnav--burger mainnav--hidden"></label>
-
     <a href="/">
         <img class="mainnav--logo" src="/assets/medias/svg/MateStudio_Logo-eye.svg" alt="Mate Studio Logo"/>
     </a>
 
-    <div class="mainnav--nav">
+    <div class="mainnav--nav" id="mainnav">
         <ul class="mainnav--list">
             <li class="mainnav--item {% if page.url == '/' %} mainnav--item-active {% endif %}">
                 <p class="f-nav">></p>
@@ -58,6 +54,7 @@
         </ul>
     </div>
 
-    <label for="mainnav--burger" class="mainnav--burger"></label>
+    <a href="#mainnav" class="mainnav--burger mainnav--burger-open" aria-label="Open navigation">open</a>
+    <a href="#mainnav-close" class="mainnav--burger mainnav--burger-close" aria-label="Close navigation">close</a>
 
 </nav>

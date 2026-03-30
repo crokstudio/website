@@ -4,12 +4,11 @@ TRUST SECTION
 
 .trust--title {
     grid-column: 2 / 7;
-    
-    padding-block-start: var(--spacing-6);
+
 }
 
 .trust--grid {
-    grid-column: 2/10;
+    grid-column: 2/-2;
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -35,4 +34,8 @@ TRUST SECTION
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.partners--contact {
+    grid-column: 2/-2;
 }

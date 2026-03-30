@@ -230,6 +230,9 @@
     justify-content: flex-end;
     padding: var(--spacing-3);
     box-sizing: border-box;
+
+    background-size: cover;
+    background-position: center;
 }
 
 .vision--person-name {

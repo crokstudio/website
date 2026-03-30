@@ -6,6 +6,10 @@ permalink: projects.html
 
 {% block content %}
     
+<div class="section grid-layout projects--title" id="projects">
+    <h1>Tous Nos Projets</h1>
+</div>
+
     <div class="projects--container grid-layout section">
         <div class="projects--filters">
             <h3 class="projects--filters-title">Filtres</h3>
@@ -25,13 +29,19 @@ permalink: projects.html
                 <li class="projects--filters-item">
                     <h5>branding</h5>
                 </li>
+                <li class="projects--filters-item">
+                    <h5>branding</h5>
+                </li>
+                <li class="projects--filters-item">
+                    <h5>branding</h5>
+                </li>
             </ul>
         </div>
-        <div class="projects--content" id="projects">
+        <div class="projects--content">
             <ul class="projects--list">
                 {% for project in collections.projects %}
                     <li class="projects--item">
-                        <a href="{{ project.url }}" class="grid-layout-7">
+                        <a href="{{ project.url }}" class="grid-layout-desktop-7">
                         <img src="{{project.data.cover}}" alt="" class="projects--item-img fluidimg">
                         <div class="projects--item-content grid-layout-7">
                             <h2 class="projects--item-title">{{project.data.title}}</h2>
