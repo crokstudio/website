@@ -208,6 +208,8 @@ h1 {
     color: var(--text-color-100);
 }
 
+/* TEXT MODIFIERS */
+
 .fc-100 {
     color: var(--text-color-100);
 }
@@ -225,6 +227,14 @@ h1 {
 }
 .fc-regular {
     font-weight: 400;
+}
+
+.fh-125 {
+    line-height: 125%;
+}
+
+.fh-auto {
+    line-height: normal;
 }
 
 /* SECTION MODIFIERS */
