@@ -17,3 +17,9 @@
 .cursor.cursor--visible {
     opacity: 1;
 }
+
+@media (hover: none), (pointer: coarse) {
+    .cursor {
+        display: none;
+    }
+}
