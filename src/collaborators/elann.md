@@ -1,4 +1,4 @@
 ---
-name: "Elann Fraiture"
-profilePicture: "/assets/medias/img/mb_1.png"
+name: Arno Joachim
+profilePicture: /assets/medias/img/pp_arno.jpg
 ---
