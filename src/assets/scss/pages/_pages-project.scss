@@ -50,7 +50,7 @@ PROJECT SECTIONS
 ======================= */
 
 .project--sections {
-    row-gap: var(--spacing-2);
+    row-gap: var(--spacing-1);
 }
 
 .justify-left,
@@ -74,7 +74,7 @@ PROJECT SECTIONS
 .project--section-double-image {
     display: flex;
     flex-direction: row;
-    gap: var(--spacing-2);
+    gap: var(--spacing-1);
     grid-column: 2 / -2;
 }
 
@@ -129,5 +129,10 @@ PROJECT SECTIONS
 
     .justify-right {
         grid-column: 6 / span 5;
+    }
+
+    /*DOUBLE IMAGE SECTIONS*/
+    .project--section-double-image {
+        gap: var(--spacing-2);
     }
 }

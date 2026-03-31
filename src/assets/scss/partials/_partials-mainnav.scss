@@ -3,7 +3,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: var(--spacing-1) var(--spacing-4);
+    padding: var(--spacing-1) calc(var(--spacing-1) + var(--spacing-grid-gap));
     background-color: var(--color-white-100);
     /*
     mix-blend-mode: difference;
@@ -121,6 +121,11 @@
 /* DESKTOP */
 
 @media all and (min-width: 1024px) {
+
+    .mainnav--container {
+        padding: var(--spacing-1) calc(var(--spacing-3) + var(--spacing-grid-gap));
+    }
+
     .mainnav--nav {
         position: static;
         width: auto;

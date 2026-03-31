@@ -4,7 +4,7 @@
 
     display: grid;
     gap: var(--spacing-grid-gap);
-    grid-template-columns: var(--spacing-2) repeat(5, 1fr) var(--spacing-2);
+    grid-template-columns: var(--spacing-1) repeat(5, 1fr) var(--spacing-1);
 
 }
 
@@ -12,7 +12,7 @@
 
     .grid-layout {
         gap: var(--spacing-grid-gap);
-        grid-template-columns: var(--spacing-4) repeat(9, 1fr) var(--spacing-4);
+        grid-template-columns: var(--spacing-3) repeat(9, 1fr) var(--spacing-3);
     }
 
 }

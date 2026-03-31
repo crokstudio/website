@@ -2,6 +2,12 @@
     --mainnav-scroll-offset: var(--spacing-4);
 }
 
+@media all and (min-width: 1024px) {
+    :root {
+        --mainnav-scroll-offset: var(--spacing-5);
+    }
+}
+
 * {
     margin: 0;
 }

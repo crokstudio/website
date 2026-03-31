@@ -10,11 +10,7 @@ TRUST SECTION
 .trust--grid {
     grid-column: 2/-2;
 
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-3) var(--spacing-3);
-
-    padding-block-start: var(--spacing-6);
+    padding-block-start: var(--spacing-4);
 }   
 
 .trust--partner {
@@ -38,4 +34,10 @@ TRUST SECTION
 
 .partners--contact {
     grid-column: 2/-2;
+}
+
+@media all and (min-width: 1024px) {
+    .trust--grid {
+        padding-block-start: var(--spacing-6)
+    }
 }

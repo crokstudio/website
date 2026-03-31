@@ -21,10 +21,10 @@ if (cursor) {
         y: hasSavedPosition ? parsedPosition.y : 0,
         targetX: hasSavedPosition ? parsedPosition.x : 0,
         targetY: hasSavedPosition ? parsedPosition.y : 0,
-        scaleX: 1,
-        scaleY: 1,
-        targetScaleX: 1,
-        targetScaleY: 1,
+        scaleX: 0.5,
+        scaleY: 0.5,
+        targetScaleX: 0.5,
+        targetScaleY: 0.5,
         isVisible: hasSavedPosition,
         color: "#ffffff",
     };
@@ -33,9 +33,9 @@ if (cursor) {
         if (event.target.closest("a") || event.target.closest("button") || event.target.closest("label") || event.target.closest("input") || event.target.closest("textarea")) {
             state.targetScaleX = nextScaleX;
             state.targetScaleY = nextScaleY;
-            /*
-            state.color = nextScale === 0.75 ? "#2DE1B0" : "#ffffff";
-            */
+            
+            state.color = nextScale === 0.75 ? "#ff0000" : "#ffffff";
+            
         }
     };
 
@@ -64,11 +64,11 @@ if (cursor) {
     });
 
     document.addEventListener("pointerover", (event) => {
-        updateHoverState(event, 0.45, 0.45);
+        updateHoverState(event, 0.75, 0.75);
     });
 
     document.addEventListener("pointerout", (event) => {
-        updateHoverState(event, 1, 1);
+        updateHoverState(event, 0.5, 0.5);
     });
 
     const render = () => {

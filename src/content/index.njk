@@ -72,38 +72,31 @@ permalink: index.html
                 <h2>Expertise</h2>
             </div>
             <ul class="expertise--list">
-                <li class="expertise--item grid-layout-5 grid-layout-desktop-9">
-                    <input type="checkbox" id="expertise--design" class="expertise--item-input">
-                    <label for="expertise--design" class="expertise--item-label">
-                        <h4 class="expertise--name">Design</h4>
-                    </label>
-                    <div class="expertise--item-content">
-                        <p class="div expertise--item-text">Our design approach combines aesthetics with functionality to create compelling visual experiences.</p>
-                        <ul class="expertise--item-skills">
-                            <li><p>UI/UX Design</p></li>
-                            <li><p>Visual Design</p></li>
-                            <li><p>Brand Identity</p></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="expertise--item grid-layout-5 grid-layout-desktop-9">
-                    <input type="checkbox" id="expertise--branding" class="expertise--item-input">
-                    <label for="expertise--branding" class="expertise--item-label">
-                        <h4 class="expertise--name">Branding</h4>
-                    </label>
-                    <div class="expertise--item-content">
-                        <p class="div expertise--item-text">We craft unique brand identities that resonate with audiences and stand out in the market.</p>
-                    </div>
-                </li>
-                <li class="expertise--item grid-layout-5 grid-layout-desktop-9">
-                    <input type="checkbox" id="expertise--web" class="expertise--item-input">
-                    <label for="expertise--web" class="expertise--item-label">
-                        <h4 class="expertise--name">Web Development</h4>
-                    </label>
-                    <div class="expertise--item-content">
-                        <p class="div expertise--item-text">Our web development services deliver responsive, user-friendly websites that drive engagement and conversions.</p>
-                    </div>
-                </li>
+                
+                {% for expertise in collections.expertises %}
+                
+                    <li class="expertise--item grid-layout-5 grid-layout-desktop-9">
+                        <input type="checkbox" id="expertise--{{ expertise.data.tag }}" class="expertise--item-input">
+                        <label for="expertise--{{ expertise.data.tag }}" class="expertise--item-label">
+                            <h4 class="expertise--name">{{ expertise.data.name }}</h4>
+                        </label>
+                        <div class="expertise--item-content grid-layout-desktop-9">
+                            <div>
+                                <p class="div expertise--item-text">{{ expertise.data.description }}</p>
+                                <ul class="expertise--item-skills">
+                                    {% for skill in expertise.data.skills %}
+                                        <li><p>{{ skill }}</p></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <a href="/projects.html#{{ expertise.data.tag }}" class="expertise--item-cta">
+                                <h3 class="cta">Voir des projets en lien</h3>
+                            </a>
+                        </div>
+                    </li>
+
+                {% endfor %}
+
             </ul>
         </div>
 

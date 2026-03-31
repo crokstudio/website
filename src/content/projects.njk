@@ -6,36 +6,32 @@ title: Projets
 {% extends "layouts/base.njk" %}
 
 {% block content %}
+
+<span id="all" class="projects--target" aria-hidden="true"></span>
+{% for expertise in collections.expertises %}
+    <span id="{{ expertise.data.tag }}" class="projects--target" aria-hidden="true"></span>
+{% endfor %}
     
-<div class="section grid-layout projects--title" id="projects">
+<div class="section grid-layout projects--title">
     <h1>Tous Nos Projets</h1>
 </div>
 
-    <div class="projects--container grid-layout section">
+    <div class="projects--container grid-layout section"  id="projects">
         <div class="projects--filters">
             <h3 class="projects--filters-title">Filtres</h3>
             <ul class="projects--filters-list">
-                <li class="projects--filters-item">
-                    <h5>all</h5>
+                <li class="projects--filters-item" data-filter="all">
+                    <a href="#all">
+                        <h5>all</h5>
+                    </a>
                 </li>
-                <li class="projects--filters-item projects--filters-item-active">
-                    <h5>web</h5>
-                </li>
-                <li class="projects--filters-item">
-                    <h5>mobile</h5>
-                </li>
-                <li class="projects--filters-item">
-                    <h5>design</h5>
-                </li>
-                <li class="projects--filters-item">
-                    <h5>branding</h5>
-                </li>
-                <li class="projects--filters-item">
-                    <h5>branding</h5>
-                </li>
-                <li class="projects--filters-item">
-                    <h5>branding</h5>
-                </li>
+                {% for expertise in collections.expertises %}
+                    <li class="projects--filters-item" data-filter="{{ expertise.data.tag }}">
+                        <a href="#{{ expertise.data.tag }}">
+                            <h5>{{ expertise.data.name }}</h5>
+                        </a>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
         <div class="projects--content">
@@ -57,5 +53,21 @@ title: Projets
     </div>
    
     {% include "partials/partners.njk" %}
+
+    <style>
+        {% for expertise in collections.expertises %}
+            #all:target ~ .projects--container .projects--filters-item[data-filter="all"] h5 {
+                text-decoration-line: underline;
+                text-decoration-thickness: 3px;
+                text-underline-offset: 3px;
+            }
+            #{{ expertise.data.tag }}:target ~ .projects--container .projects--filters-item[data-filter="{{ expertise.data.tag }}"] h5 {
+                text-decoration-line: underline;
+                text-decoration-thickness: 3px;
+                text-underline-offset: 3px;
+            }
+
+        {% endfor %}
+    </style>
 
 {% endblock %}

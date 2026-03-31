@@ -23,6 +23,11 @@ export default async function (eleventyConfig) {
     return collectionApi.getFilteredByGlob("./src/person/*.md");
   });
 
+  // Expertise collection
+  eleventyConfig.addCollection("expertises", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/expertise/*.md");
+  });
+
   // Add slug filter to slugify product names for URLs
   eleventyConfig.addFilter("slug", (str) => {
     if (!str) return "";
