@@ -9,14 +9,16 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--mainnav-scroll-offset);
+    overflow-x: clip;
 }
 
 body {
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
-body:has(.mainnav--burger-checkbox:checked) {
+body:has(.mainnav--nav:target) {
     overflow-y: hidden;
+    max-height: 100vh;
 }
 
 [id] {

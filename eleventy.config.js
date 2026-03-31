@@ -69,6 +69,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/assets/medias/video");
   eleventyConfig.addPassthroughCopy("./src/assets/medias/svg");
   eleventyConfig.addPassthroughCopy("./src/assets/medias/img");
+  eleventyConfig.addPassthroughCopy("./src/assets/medias/icons");
 
   // Eleventy dev server config
   eleventyConfig.setServerOptions({
