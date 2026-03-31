@@ -1,5 +1,5 @@
 ---
-name: "partner 1"
-logo: "/assets/medias/img/mb_1.png"
-background: "/assets/medias/img/mb_2.png"
+name: E2architecture
+logo: /assets/medias/img/e2logo2white.svg
+background: /assets/medias/img/eijsden_1.jpg
 ---
