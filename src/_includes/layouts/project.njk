@@ -8,7 +8,7 @@ permalink: "projects/{{ page.fileSlug }}/"
 
     <div class="section grid-layout">
         <h1 class="project--title">{{ title }}</h1>
-        <h3 class="project--date fc-50">{{ dates[0] | monthFrench }} - {{ dates[1] | monthFrench }}</h3>
+        <h3 class="project--date fc-50">{{ dates[0] | monthFrench }} {{ dates[0] | year }} - {{ dates[1] | monthFrench }} {{ dates[1] | year }}</h3>
     </div>
 
     <div class="section grid-layout">
@@ -54,7 +54,7 @@ permalink: "projects/{{ page.fileSlug }}/"
                             {% if section.justify=="left" %} justify-left 
                             {% else %} justify-right {% endif %}">
                     {% if section.title is defined %}
-                        <p>{{ section.title }}</p>
+                        <p class="project--section-text-title">{{ section.title }}</p>
                     {% endif %}
                         <p>{{ section.text }}</p>
                 </div>

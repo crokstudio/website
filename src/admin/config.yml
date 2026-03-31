@@ -31,9 +31,9 @@ collections:
         widget: "relation"
         collection: "services"
         multiple: true
-        search_fields: ["name", "tag"]
+        search_fields: ["name"]
         value_field: "tag"
-        display_fields: ["name", "tag"]
+        display_fields: ["name"]
         min: 1
 
       # SKILLS

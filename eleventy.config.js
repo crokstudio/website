@@ -61,6 +61,12 @@ export default async function (eleventyConfig) {
     return m;
   });
 
+  eleventyConfig.addNunjucksFilter("year", (dateInput) => {
+    const d = (dateInput instanceof Date) ? dateInput : new Date(dateInput);
+    if (isNaN(d)) return "";
+    return d.getFullYear();
+  });
+
   // avoid processing and watching files
   eleventyConfig.ignores.add("./src/assets/**/*");
   eleventyConfig.watchIgnores.add("./src/assets/**/*");

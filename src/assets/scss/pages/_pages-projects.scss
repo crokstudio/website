@@ -75,9 +75,10 @@
 }
 
 .projects--item-img {
-    grid-column: 1 / 8;
+    grid-column: 1 / -1;
     aspect-ratio: 1 / 1;
     object-fit: cover;
+    width: 100%;
 }
 
 .projects--item-content {
