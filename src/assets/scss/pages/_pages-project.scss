@@ -74,15 +74,31 @@ PROJECT SECTIONS
     grid-column: 2 / -2;
 }
 
-/*DOUBLE IMAGE SECTIONS*/
-.project--section-double-image {
+.project--section-Himage img {
+    width: 100%;
+}
+
+.project--section-video {
+    grid-column: 2 / -2;
+}
+
+.project--section-video-media {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/*DOUBLE MEDIA SECTIONS*/
+.project--section-double-image,
+.project--section-double-video {
     display: flex;
     flex-direction: row;
     gap: var(--spacing-1);
     grid-column: 2 / -2;
 }
 
-.project--section-double-image > img {
+.project--section-double-image > img,
+.project--section-double-video > video {
     flex: 1 1 0;
     min-width: 0;
 }
@@ -135,8 +151,9 @@ PROJECT SECTIONS
         grid-column: 6 / span 5;
     }
 
-    /*DOUBLE IMAGE SECTIONS*/
-    .project--section-double-image {
+    /*DOUBLE MEDIA SECTIONS*/
+    .project--section-double-image,
+    .project--section-double-video {
         gap: var(--spacing-2);
     }
 }

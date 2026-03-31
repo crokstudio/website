@@ -63,10 +63,50 @@ permalink: "projects/{{ page.fileSlug }}/"
                 <img class="fluidimg" src="{{ section.image }}" alt="">
             </div>
 
+            {% elseif section.kind == "video_horizontal" %}
+            <div class="project--section-video">
+                <video
+                    class="project--section-video-media"
+                    controls
+                    playsinline
+                    preload="metadata"
+                    {% if section.poster is defined %}poster="{{ section.poster }}"{% endif %}>
+                    <source src="/assets/medias/video/{{ section.video }}">
+                </video>
+            </div>
+
+            {% elseif section.kind == "video_vertical" %}
+                <div class="project--section-Vvideo
+                            {% if section.justify=="left" %} justify-left 
+                            {% else %} justify-right {% endif %}">
+                    <video
+                        class="project--section-video-media"
+                        controls
+                        playsinline
+                        preload="metadata"
+                        {% if section.poster is defined %}poster="{{ section.poster }}"{% endif %}>
+                        <source src="/assets/medias/video/{{ section.video }}">
+                    </video>
+                </div>
+
             {% elseif section.kind == "double_image_vertical" %}
                 <div class="project--section-double-image">
                     <img class="fluidimg" src="{{ section.images[0] }}" alt="">
                     <img class="fluidimg" src="{{ section.images[1] }}" alt="">
+                </div>
+
+            {% elseif section.kind == "double_video_vertical" %}
+                <div class="project--section-double-video">
+                    {% for video in section.videos %}
+                        <video
+                            class="project--section-video-media"
+                            controls
+                            playsinline
+                            preload="metadata"
+                            {% if video.poster is defined %}poster="{{ video.poster }}"{% endif %}>
+                            <source src="/assets/medias/video/{{ video.video | default(video) }}">
+                        </video>
+                    {% endfor %}
                 </div>
 
             {% elseif section.kind == "image_vertical" %}

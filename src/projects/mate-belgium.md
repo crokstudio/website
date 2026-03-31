@@ -38,8 +38,6 @@ sections:
     images:
       - /assets/medias/img/revealetoile-2-1.png
       - /assets/medias/img/flyingcap.png
-  - kind: image_horizontal
-    image: /assets/medias/img/revealetoile-5.jpg
   - kind: text
     justify: left
     text: Une première collection "test" voit le jour en février 2025. Elle se
@@ -48,6 +46,8 @@ sections:
   - kind: image_vertical
     justify: right
     image: /assets/medias/img/hp-col-2.jpg
+  - kind: image_horizontal
+    image: /assets/medias/img/revealetoile-5.jpg
   - kind: text
     justify: left
     text: >-
@@ -56,5 +56,51 @@ sections:
       vidéo principale, sous forme de court-métrage, en est le meilleur exemple.
 
       Chaque plan a été décliné en vidéo réelle [slick] et en un version animée à la main [street]
+  - kind: video_horizontal
+    video: pubmix.mp4
+  - kind: double_video_vertical
+    videos:
+      - affiche01S.webm
+      - affiche02S.webm
+  - kind: text
+    justify: right
+    title: Launch event
+    text: Nous avons organisé un Launch Event pour la sortie de cette première
+      collection. En plus des vêtements,  des posters sur la faune et la flore
+      était aussi disponible
+  - kind: image_horizontal
+    image: /assets/medias/img/pxl_20250226_175408409-1.png
+  - kind: double_image_vertical
+    images:
+      - /assets/medias/img/print-lucanus.png
+      - /assets/medias/img/print-cicona.png
+  - kind: text
+    justify: right
+    title: ETRETAT
+    text: "Notre deuxième collection se concentre sur la région d'Etretat dans le
+      nord de la France. Ville côtière connue notamment au travers des aventures
+      de Lupin et de ses falaises blanches, nous avons voulu mettre en lumière
+      deux aspect moins souvent abordés : la pêche et la peinture."
+  - kind: image_horizontal
+    image: /assets/medias/img/frame-278.png
+  - kind: image_horizontal
+    image: /assets/medias/img/frame-279.png
+  - kind: image_horizontal
+    image: /assets/medias/img/frame-280.png
+  - kind: text
+    justify: left
+    text: Nouveauté pour nous dans cette collection, nous proposons deux vêtements
+      différents, une casquette et un t-shirt à longues manches
+  - kind: image_vertical
+    justify: right
+    image: /assets/medias/img/postclean-03.jpg
+  - kind: image_horizontal
+    image: /assets/medias/img/frame-439.png
+  - kind: image_horizontal
+    image: /assets/medias/img/postclean-05.jpg
+  - kind: double_image_vertical
+    images:
+      - /assets/medias/img/frame-449.png
+      - /assets/medias/img/frame-451.png
 layout: layouts/project.njk
 ---

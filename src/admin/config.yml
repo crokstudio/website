@@ -69,6 +69,19 @@ collections:
             fields:
               - { label: "Image", name: "image", widget: "image" }
 
+          - label: "Vidéo horizontale"
+            name: "video_horizontal"
+            widget: "object"
+            fields:
+              - { label: "Vidéo name", name: "video", widget: "string" }
+
+          - label: "Vidéo verticale"
+            name: "video_vertical"
+            widget: "object"
+            fields:
+              - { label: "Vidéo name", name: "video", widget: "string" }
+              - { label: "Justification", name: "justify", widget: "select", options: ["left", "right"], default: "right" }
+
           - label: "Image verticale"
             name: "image_vertical"
             widget: "object"
@@ -86,6 +99,17 @@ collections:
                 min: 2
                 max: 2
                 field: { label: "Image", name: "image", widget: "image" }
+
+          - label: "Double vidéo verticale"
+            name: "double_video_vertical"
+            widget: "object"
+            fields:
+              - label: "Vidéos"
+                name: "videos"
+                widget: "list"
+                min: 2
+                max: 2
+                field: { label: "Vidéo name", name: "video", widget: "string" }
 
       - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/project.njk" }
 

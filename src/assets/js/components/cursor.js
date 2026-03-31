@@ -40,12 +40,12 @@ if (!supportsCustomCursor) {
                 return;
             }
 
-            if (event.target.closest("a") || event.target.closest("button") || event.target.closest("label") || event.target.closest("input") || event.target.closest("textarea")) {
+            if (event.target.closest("a") || event.target.closest("button") || event.target.closest("label") || event.target.closest("input") || event.target.closest("textarea") || event.target.closest("video") ) {
                 state.targetScaleX = nextScaleX;
                 state.targetScaleY = nextScaleY;
-                /*
+                
                 state.color = nextScaleX === 0.75 ? "#2DE1B0" : "#ffffff";
-                */
+                
             }
         };
 
