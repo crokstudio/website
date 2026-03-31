@@ -65,31 +65,31 @@ permalink: index.html
 
     <div class="section section--dark"></div>
 
-    <div class="section section--dark grid-layout" id="expertise">
+    <div class="section section--dark grid-layout" id="services">
         <div class="studio--dark">
             <div class="studio--dark-title">
                 <p>001</p>
-                <h2>Expertise</h2>
+                <h2>Services</h2>
             </div>
             <ul class="expertise--list">
                 
-                {% for expertise in collections.expertises %}
+                {% for service in collections.services %}
                 
                     <li class="expertise--item grid-layout-5 grid-layout-desktop-9">
-                        <input type="checkbox" id="expertise--{{ expertise.data.tag }}" class="expertise--item-input">
-                        <label for="expertise--{{ expertise.data.tag }}" class="expertise--item-label">
-                            <h4 class="expertise--name">{{ expertise.data.name }}</h4>
+                        <input type="checkbox" id="expertise--{{ service.data.tag }}" class="expertise--item-input">
+                        <label for="expertise--{{ service.data.tag }}" class="expertise--item-label">
+                            <h4 class="expertise--name">{{ service.data.name }}</h4>
                         </label>
                         <div class="expertise--item-content grid-layout-desktop-9">
                             <div>
-                                <p class="div expertise--item-text">{{ expertise.data.description }}</p>
+                                <p class="div expertise--item-text">{{ service.data.description }}</p>
                                 <ul class="expertise--item-skills">
-                                    {% for skill in expertise.data.skills %}
+                                    {% for skill in service.data.skills %}
                                         <li><p>{{ skill }}</p></li>
                                     {% endfor %}
                                 </ul>
                             </div>
-                            <a href="/projects.html#{{ expertise.data.tag }}" class="expertise--item-cta">
+                            <a href="/projects.html#{{ service.data.tag }}" class="expertise--item-cta">
                                 <h3 class="cta">Voir des projets en lien</h3>
                             </a>
                         </div>
@@ -171,9 +171,9 @@ permalink: index.html
             <div class="vision--container grid-layout-5 grid-layout-desktop-9">
                 <p class="vision--text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 <div class="vision--content">
-                    {% for person in collections.person %}
-                        <div class="vision--person" style="background-image: url('{{person.data.profilePicture}}')">
-                            <h5 class="vision--person-name">{{person.data.name}}</h5>
+                    {% for collaborator in collections.collaborators %}
+                        <div class="vision--person" style="background-image: url('{{collaborator.data.profilePicture}}')">
+                            <h5 class="vision--person-name">{{collaborator.data.name}}</h5>
                         </div>
                     {% endfor %}
                 </div>

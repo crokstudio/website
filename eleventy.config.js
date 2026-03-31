@@ -18,14 +18,14 @@ export default async function (eleventyConfig) {
     return collectionApi.getFilteredByGlob("./src/partners/*.md");
   });
 
-  // Person collection
-  eleventyConfig.addCollection("person", function (collectionApi) {
-    return collectionApi.getFilteredByGlob("./src/person/*.md");
+  // Collaborators collection
+  eleventyConfig.addCollection("collaborators", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/collaborators/*.md");
   });
 
-  // Expertise collection
-  eleventyConfig.addCollection("expertises", function (collectionApi) {
-    return collectionApi.getFilteredByGlob("./src/expertise/*.md");
+  // Services collection
+  eleventyConfig.addCollection("services", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/services/*.md");
   });
 
   // Add slug filter to slugify product names for URLs

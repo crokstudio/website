@@ -8,8 +8,8 @@ title: Projets
 {% block content %}
 
 <span id="all" class="projects--target" aria-hidden="true"></span>
-{% for expertise in collections.expertises %}
-    <span id="{{ expertise.data.tag }}" class="projects--target" aria-hidden="true"></span>
+{% for service in collections.services %}
+    <span id="{{ service.data.tag }}" class="projects--target" aria-hidden="true"></span>
 {% endfor %}
     
 <div class="section grid-layout projects--title">
@@ -25,10 +25,10 @@ title: Projets
                         <h5>all</h5>
                     </a>
                 </li>
-                {% for expertise in collections.expertises %}
-                    <li class="projects--filters-item" data-filter="{{ expertise.data.tag }}">
-                        <a href="#{{ expertise.data.tag }}">
-                            <h5>{{ expertise.data.name }}</h5>
+                {% for service in collections.services %}
+                    <li class="projects--filters-item" data-filter="{{ service.data.tag }}">
+                        <a href="#{{ service.data.tag }}">
+                            <h5>{{ service.data.name }}</h5>
                         </a>
                     </li>
                 {% endfor %}
@@ -55,13 +55,13 @@ title: Projets
     {% include "partials/partners.njk" %}
 
     <style>
-        {% for expertise in collections.expertises %}
+        {% for service in collections.services %}
             #all:target ~ .projects--container .projects--filters-item[data-filter="all"] h5 {
                 text-decoration-line: underline;
                 text-decoration-thickness: 3px;
                 text-underline-offset: 3px;
             }
-            #{{ expertise.data.tag }}:target ~ .projects--container .projects--filters-item[data-filter="{{ expertise.data.tag }}"] h5 {
+            #{{ service.data.tag }}:target ~ .projects--container .projects--filters-item[data-filter="{{ service.data.tag }}"] h5 {
                 text-decoration-line: underline;
                 text-decoration-thickness: 3px;
                 text-underline-offset: 3px;

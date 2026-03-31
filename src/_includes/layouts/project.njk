@@ -25,8 +25,12 @@ permalink: "projects/{{ page.fileSlug }}/"
         <div class="project--info-list project--services">
             <h5>Services</h5>
             <ul class="project--services-list">
-                {% for service in services %}
-                    <li><p>{{ service.label }}</p></li>
+                {% for projectService in services %}
+                    {% for service in collections.services %}
+                        {% if service.data.tag == projectService %}
+                            <li><p>{{ service.data.name }}</p></li>
+                        {% endif %}
+                    {% endfor %}
                 {% endfor %}
             </ul>
         </div>
@@ -45,7 +49,7 @@ permalink: "projects/{{ page.fileSlug }}/"
 
     <div class="section grid-layout project--sections">
         {% for section in sections %}
-            {% if section.text is defined %}
+            {% if section.kind == "text" %}
                 <div class="project--section-text 
                             {% if section.justify=="left" %} justify-left 
                             {% else %} justify-right {% endif %}">
@@ -54,22 +58,22 @@ permalink: "projects/{{ page.fileSlug }}/"
                     {% endif %}
                         <p>{{ section.text }}</p>
                 </div>
-            {% elseif section.Himage is defined %}
+            {% elseif section.kind == "image_horizontal" %}
             <div class="project--section-Himage">
-                <img class="fluidimg" src="{{ section.Himage }}" alt="">
+                <img class="fluidimg" src="{{ section.image }}" alt="">
             </div>
 
-            {% elseif section.doubleImage is defined %}
+            {% elseif section.kind == "double_image_vertical" %}
                 <div class="project--section-double-image">
-                    <img class="fluidimg" src="{{ section.doubleImage[0] }}" alt="">
-                    <img class="fluidimg" src="{{ section.doubleImage[1] }}" alt="">
+                    <img class="fluidimg" src="{{ section.images[0] }}" alt="">
+                    <img class="fluidimg" src="{{ section.images[1] }}" alt="">
                 </div>
 
-            {% elseif section.Vimage is defined %}
+            {% elseif section.kind == "image_vertical" %}
                 <div class="project--section-Vimage
                             {% if section.justify=="left" %} justify-left 
                             {% else %} justify-right {% endif %}">
-                    <img class="fluidimg" src="{{ section.Vimage }}" alt="">
+                    <img class="fluidimg" src="{{ section.image }}" alt="">
                 </div>
             {% endif %}
         {% endfor %}
