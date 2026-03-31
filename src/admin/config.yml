@@ -1,0 +1,86 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/assets/medias/img"
+public_folder: "/assets/medias/img"
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "src/projects"
+    create: true
+    slug: "{{slug}}"
+
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+
+      - label: "Dates"
+        name: "dates"
+        widget: "list"
+        field: { label: "Date", name: "date", widget: "datetime" }
+
+      - { label: "Client", name: "client", widget: "string" }
+      - { label: "Type", name: "type", widget: "string" }
+
+      # SERVICES
+      - label: "Services"
+        name: "services"
+        widget: "list"
+        fields:
+          - { label: "Tag", name: "tag", widget: "string" }
+          - { label: "Label", name: "label", widget: "string" }
+
+      # SKILLS
+      - label: "Skills"
+        name: "skills"
+        widget: "list"
+        fields:
+          - { label: "Softwares", name: "softwares", widget: "string", required: false }
+          - { label: "Hardwares", name: "hardwares", widget: "string", required: false }
+
+      - { label: "Cover", name: "cover", widget: "image" }
+
+      - { label: "Description", name: "description", widget: "text" }
+
+      # 🔥 SECTIONS (le plus intéressant)
+      - label: "Sections"
+        name: "sections"
+        widget: "list"
+        types:
+
+          - label: "Texte"
+            name: "textSection"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string", required: false }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Justify", name: "justify", widget: "select", options: ["left", "right"] }
+
+          - label: "Image horizontale"
+            name: "hImage"
+            widget: "object"
+            fields:
+              - { label: "Image", name: "Himage", widget: "image" }
+              - { label: "Justify", name: "justify", widget: "select", options: ["left", "right"] }
+
+          - label: "Image verticale"
+            name: "vImage"
+            widget: "object"
+            fields:
+              - { label: "Image", name: "Vimage", widget: "image" }
+              - { label: "Justify", name: "justify", widget: "select", options: ["left", "right"] }
+
+          - label: "Double image"
+            name: "doubleImage"
+            widget: "object"
+            fields:
+              - label: "Images"
+                name: "doubleImage"
+                widget: "list"
+                min: 2
+                max: 2
+                field: { label: "Image", name: "image", widget: "image" }
+              - { label: "Justify", name: "justify", widget: "select", options: ["left", "right"] }
+
+      - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/project.njk" }
