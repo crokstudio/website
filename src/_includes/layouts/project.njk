@@ -6,6 +6,10 @@ permalink: "projects/{{ page.fileSlug }}/"
 
 {% block content %}
 
+    {% set projectFullImageSizes = "(min-width: 1024px) calc(100vw - 120px), calc(100vw - 52px)" %}
+    {% set projectSplitImageSizes = "(min-width: 1024px) calc((100vw - 144px) / 2), calc((100vw - 62px) / 2)" %}
+    {% set projectColumnImageSizes = "(min-width: 1024px) calc((100vw - 312px) * 5 / 9 + 96px), calc(100vw - 52px)" %}
+
     <div class="section grid-layout">
         <h1 class="project--title">{{ title }}</h1>
         <h3 class="project--date fc-50">{{ dates[0] | monthFrench }} {{ dates[0] | year }} - {{ dates[1] | monthFrench }} {{ dates[1] | year }}</h3>
@@ -60,7 +64,7 @@ permalink: "projects/{{ page.fileSlug }}/"
                 </div>
             {% elseif section.kind == "image_horizontal" %}
             <div class="project--section-Himage">
-                {% responsiveImage section.image, "", "(min-width: 1024px) 80vw, 100vw", "fluidimg" %}
+                {% responsiveImage section.image, "", projectFullImageSizes, "fluidimg" %}
             </div>
 
             {% elseif section.kind == "video_horizontal" %}
@@ -91,8 +95,8 @@ permalink: "projects/{{ page.fileSlug }}/"
 
             {% elseif section.kind == "double_image_vertical" %}
                 <div class="project--section-double-image">
-                    {% responsiveImage section.images[0], "", "(min-width: 1024px) 40vw, 50vw", "fluidimg" %}
-                    {% responsiveImage section.images[1], "", "(min-width: 1024px) 40vw, 50vw", "fluidimg" %}
+                    {% responsiveImage section.images[0], "", projectSplitImageSizes, "fluidimg" %}
+                    {% responsiveImage section.images[1], "", projectSplitImageSizes, "fluidimg" %}
                 </div>
 
             {% elseif section.kind == "double_video_vertical" %}
@@ -113,7 +117,7 @@ permalink: "projects/{{ page.fileSlug }}/"
                 <div class="project--section-Vimage
                             {% if section.justify=="left" %} justify-left 
                             {% else %} justify-right {% endif %}">
-                    {% responsiveImage section.image, "", "(min-width: 1024px) 42vw, 100vw", "fluidimg" %}
+                    {% responsiveImage section.image, "", projectColumnImageSizes, "fluidimg" %}
                 </div>
             {% endif %}
         {% endfor %}

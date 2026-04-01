@@ -74,9 +74,11 @@
     gap: var(--spacing-0);
 }
 
-.projects--item-img {
+.projects--item a picture {
     grid-column: 1 / -1;
-    aspect-ratio: 1 / 1;
+}
+
+.projects--item-img {
     object-fit: cover;
     width: 100%;
 }

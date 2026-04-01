@@ -7,6 +7,8 @@ title: Projets
 
 {% block content %}
 
+{% set projectCardSizes = "(min-width: 1024px) calc((100vw - 312px) * 7 / 9 + 144px), calc((100vw - 52px) * 0.9)" %}
+
 <span id="all" class="projects--target" aria-hidden="true"></span>
 {% for service in collections.services %}
     <span id="{{ service.data.tag }}" class="projects--target" aria-hidden="true"></span>
@@ -39,7 +41,7 @@ title: Projets
                 {% for project in collections.projects %}
                     <li class="projects--item" data-tags="{{ project.data.services | join(" ") }}">
                         <a href="{{ project.url }}" class="grid-layout-desktop-7">
-                        {% responsiveImage project.data.cover, "", "(min-width: 1024px) 58vw, 90vw", "projects--item-img fluidimg" %}
+                        {% responsiveImage project.data.cover, "", projectCardSizes, "projects--item-img fluidimg" %}
                         <div class="projects--item-content grid-layout-7">
                             <h2 class="projects--item-title">{{project.data.title}}</h2>
                             <p class="projects--item-description fh-auto">{{project.data.description}}</p>

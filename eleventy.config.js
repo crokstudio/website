@@ -11,6 +11,18 @@ const RESPONSIVE_IMAGE_WIDTHS = [320, 480, 768, 1024, 1440, 1920];
 const BACKGROUND_IMAGE_WIDTHS = [640, 1280];
 const RESPONSIVE_IMAGE_URL_PATH = "/assets/medias/img/optimized/";
 const RESPONSIVE_IMAGE_OUTPUT_DIR = "./dist/assets/medias/img/optimized/";
+const RESPONSIVE_IMAGE_ENCODER_OPTIONS = {
+  sharpWebpOptions: {
+    quality: 90,
+    alphaQuality: 100,
+    smartSubsample: true,
+  },
+  sharpJpegOptions: {
+    quality: 90,
+    chromaSubsampling: "4:4:4",
+    mozjpeg: true,
+  },
+};
 
 const isRemoteImage = (src) => /^https?:\/\//.test(src);
 const getImageExtension = (src) => path.extname(src || "").toLowerCase();
@@ -55,6 +67,7 @@ const generateResponsiveMetadata = async (src, widths, options = {}) => {
     formats: getResponsiveFormats(src, options),
     urlPath: RESPONSIVE_IMAGE_URL_PATH,
     outputDir: RESPONSIVE_IMAGE_OUTPUT_DIR,
+    ...RESPONSIVE_IMAGE_ENCODER_OPTIONS,
   });
 };
 
