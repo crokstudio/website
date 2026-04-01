@@ -6,29 +6,181 @@ permalink: index.html
 
 {% block content %}
 
-    <div id="studio" class="section">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <p>studio</p>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    {% set homepageProjects = collections.projects %}
+    {% set homepageProjectSizes = "(min-width: 1024px) calc((100vw - 144px) / 2), calc(100vw - 52px)" %}
+
+    <div class="section studio--container" id="studio">
+        <div class="studio--content grid-layout">
+            <p class="studio--location">Studio créatif belge<br>
+            Liège — Bruxelles — Brabant wallon</p>
+            <div class="studio--main grid-layout-5">
+                <img class="studio--logo fluidimg" src="/assets/medias/svg/MateStudio_Logo-studio.svg" alt="Crok logo">
+                <h4 class="studio--description">We design complete creative experiences, handling every step from idea to execution. With less friction, more coherence, and more creative freedom.</h4>
+            </div>
+        </div>
+
     </div>
-    <div id="expertise" class ="section section--dark">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <p>expertise</p>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="section studio--projects grid-layout" id="projects">
+        <div class="studio--projects-container">
+            <div class="studio--projects-left">
+                <div class="studio--projects-title">
+                    <h1 class="">DERNIERS PROJETS</h1>
+                    <h4 class="studio--projects-description">Could be yours</h4>
+                </div>
+                <ul class="studio--projects-list">
+                    {% for project in homepageProjects %}
+                        {% if loop.index0 < 1 %}
+                            <li class="studio--projects-item">
+                                <a href="{{ project.url }}">
+                                    {% responsiveImage project.data.cover, "", homepageProjectSizes, "studio--projects-item-img fluidimg" %}
+                                    <h5 class="studio--projects-item-title">{{project.data.title}}</h5>
+                                    <p class="studio--projects-item-description">{{project.data.description}}</p>
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+
+            </div>
+            <div class="studio--projects-right">
+                <ul class="studio--projects-list">
+                    {% for project in homepageProjects %}
+                        {% if loop.index0 >= 1 and loop.index0 < 3 %}
+                            <li class="studio--projects-item">
+                                <a href="{{ project.url }}">
+                                    {% responsiveImage project.data.cover, "", homepageProjectSizes, "studio--projects-item-img fluidimg" %}
+                                    <h5 class="studio--projects-item-title">{{project.data.title}}</h5>
+                                    <p class="studio--projects-item-description">{{project.data.description}}</p>
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <a href="/projects.html" class="studio--projects-more">
+                    <p class="cta">Voir tous les projets</p>
+                </a>
+            </div>
+        </div>
     </div>
-    <div id="process" class="section">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <p>process</p>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="section section--dark"></div>
+
+    <div class="section section--dark grid-layout" id="services">
+        <div class="studio--dark">
+            <div class="studio--dark-title">
+                <p>001</p>
+                <h2>Services</h2>
+            </div>
+            <ul class="expertise--list">
+                
+                {% for service in collections.services %}
+                
+                    <li class="expertise--item grid-layout-5 grid-layout-desktop-9">
+                        <input type="checkbox" id="expertise--{{ service.data.tag }}" class="expertise--item-input">
+                        <label for="expertise--{{ service.data.tag }}" class="expertise--item-label">
+                            <h4 class="expertise--name">{{ service.data.name }}</h4>
+                        </label>
+                        <div class="expertise--item-content grid-layout-desktop-9">
+                            <div>
+                                <p class="div expertise--item-text">{{ service.data.description }}</p>
+                                <ul class="expertise--item-skills">
+                                    {% for skill in service.data.skills %}
+                                        <li><p>{{ skill }}</p></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <a href="/projects.html#{{ service.data.tag }}" class="expertise--item-cta">
+                                <h3 class="cta">Voir des projets en lien</h3>
+                            </a>
+                        </div>
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+        </div>
+
     </div>
-    <div id="comprehension" class ="section section--dark">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <p>compréhension</p>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="section section--dark grid-layout" id="process">
+        <div class="studio--dark">
+            <div class="studio--dark-title">
+                <p>002</p>
+                <h2>Process</h2>
+            </div>
+            <div class="process--container grid-layout-5 grid-layout-desktop-9">
+                <p class="process--text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <div class="process--content grid-layout-desktop-9">
+                    <ul class="process--steps">
+                        <li class="process--step grid-layout-5 grid-layout-desktop-4">
+                            <h5 class="process--step-number">1</h5>
+                            <div class="process--step-content">
+                                <h5 class="process--step-title">Our Steps</h5>
+                                <p class="process--step-description">We conduct thorough research to understand your needs and goals.</p>
+                            </div>
+                        </li>
+                        <li class="process--step grid-layout-5 grid-layout-desktop-4">
+                            <h5 class="process--step-number">2</h5>
+                            <div class="process--step-content">
+                                <h5 class="process--step-title">Our Steps</h5>
+                                <p class="process--step-description">Our team creates innovative designs that align with your vision.</p>
+                            </div>
+                        </li>
+                        <li class="process--step grid-layout-5 grid-layout-desktop-4">
+                            <h5 class="process--step-number">3</h5>
+                            <div class="process--step-content">
+                                <h5 class="process--step-title">Our Steps</h5>
+                                <p class="process--step-description">We develop high-quality solutions using the latest technologies.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="process--steps">
+                        <li class="process--step grid-layout-5 grid-layout-desktop-4">
+                            <h5 class="process--step-number">1</h5>
+                            <div class="process--step-content">
+                                <h5 class="process--step-title">Our Steps</h5>
+                                <p class="process--step-description">We conduct thorough research to understand your needs and goals.</p>
+                            </div>
+                        </li>
+                        <li class="process--step grid-layout-5 grid-layout-desktop-4">
+                            <h5 class="process--step-number">2</h5>
+                            <div class="process--step-content">
+                                <h5 class="process--step-title">Our Steps</h5>
+                                <p class="process--step-description">Our team creates innovative designs that align with your vision.</p>
+                            </div>
+                        </li>
+                        <li class="process--step grid-layout-5 grid-layout-desktop-4">
+                            <h5 class="process--step-number">3</h5>
+                            <div class="process--step-content">
+                                <h5 class="process--step-title">Our Steps</h5>
+                                <p class="process--step-description">We develop high-quality solutions using the latest technologies.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div class="section section--dark grid-layout" id="vision">
+        <div class="studio--dark">
+            <div class="studio--dark-title">
+                <p>003</p>
+                <h2>Vision</h2>
+            </div>
+            <div class="vision--container grid-layout-5 grid-layout-desktop-9">
+                <p class="vision--text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <div class="vision--content">
+                    {% for collaborator in collections.collaborators %}
+                        <div class="vision--person" style="background-image: {% responsiveBackground collaborator.data.profilePicture %};">
+                            <h5 class="vision--person-name">{{collaborator.data.name}}</h5>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 {% endblock %}

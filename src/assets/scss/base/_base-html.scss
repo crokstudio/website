@@ -2,6 +2,12 @@
     --mainnav-scroll-offset: var(--spacing-4);
 }
 
+@media all and (min-width: 1024px) {
+    :root {
+        --mainnav-scroll-offset: var(--spacing-5);
+    }
+}
+
 * {
     margin: 0;
 }
@@ -9,6 +15,17 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--mainnav-scroll-offset);
+    overflow-x: clip;
+}
+
+body {
+    overflow-x: clip;
+    background-color: var(--color-white-100);
+}
+
+html:has(.mainnav--nav:target),
+body:has(.mainnav--nav:target) {
+    overflow-y: clip;
 }
 
 [id] {
@@ -27,7 +44,20 @@ a {
     color: inherit;
 }
 
+picture {
+    display: block;
+    max-width: 100%;
+}
+
+picture > img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .fluidimg {
+    display: block;
+    width: 100%;
     max-width: 100%;
     height: auto;
 }

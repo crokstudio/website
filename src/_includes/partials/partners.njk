@@ -1,13 +1,16 @@
+<div class="section section--dark"></div>
 <div class="section section--dark grid-layout" id="partners">
     <h2 class="trust--title">Ils nous ont fait confiance</h2>
 
-    <div class="trust--grid">
+    <div class="trust--grid grid-layout-3 grid-layout-desktop-4">
         {% for partner in collections.partners %}
         <div class="trust--partner">
-            <div class="trust--partner-images" style="background-image: url({{ partner.data.background }});">
-                <img class="fluidimg" src="{{ partner.data.logo }}" alt="{{ partner.data.name }}">
+            <div class="trust--partner-images" style="background-image: {% responsiveBackground partner.data.background %};">
+                {% responsiveImage partner.data.logo, partner.data.name, "(min-width: 1024px) 20vw, 45vw", "fluidimg" %}
             </div>
+            <!--
             <h5 class="trust--partner-name fc-regular">{{ partner.data.name }}</h5>
+            -->
         </div>
         {% endfor %}
 
@@ -15,7 +18,7 @@
 </div>
 
 <div class="section section--dark grid-layout">
-    <div class="project--nextProject cta-Big">
+    <div class="cta-Big partners--contact">
         <a href="/contact">
             <h3>Contact</h3>
         </a>

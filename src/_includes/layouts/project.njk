@@ -6,9 +6,13 @@ permalink: "projects/{{ page.fileSlug }}/"
 
 {% block content %}
 
+    {% set projectFullImageSizes = "(min-width: 1024px) calc(100vw - 120px), calc(100vw - 52px)" %}
+    {% set projectSplitImageSizes = "(min-width: 1024px) calc((100vw - 144px) / 2), calc((100vw - 62px) / 2)" %}
+    {% set projectColumnImageSizes = "(min-width: 1024px) calc((100vw - 312px) * 5 / 9 + 96px), calc(100vw - 52px)" %}
+
     <div class="section grid-layout">
         <h1 class="project--title">{{ title }}</h1>
-        <h3 class="project--date fc-50">{{ dates[0] | monthFrench }} - {{ dates[1] | monthFrench }}</h3>
+        <h3 class="project--date fc-50">{{ dates[0] | monthFrench }} {{ dates[0] | year }} - {{ dates[1] | monthFrench }} {{ dates[1] | year }}</h3>
     </div>
 
     <div class="section grid-layout">
@@ -25,8 +29,12 @@ permalink: "projects/{{ page.fileSlug }}/"
         <div class="project--info-list project--services">
             <h5>Services</h5>
             <ul class="project--services-list">
-                {% for service in services %}
-                    <li><p>{{ service.label }}</p></li>
+                {% for projectService in services %}
+                    {% for service in collections.services %}
+                        {% if service.data.tag == projectService %}
+                            <li><p>{{ service.data.name }}</p></li>
+                        {% endif %}
+                    {% endfor %}
                 {% endfor %}
             </ul>
         </div>
@@ -45,31 +53,71 @@ permalink: "projects/{{ page.fileSlug }}/"
 
     <div class="section grid-layout project--sections">
         {% for section in sections %}
-            {% if section.text is defined %}
+            {% if section.kind == "text" %}
                 <div class="project--section-text 
                             {% if section.justify=="left" %} justify-left 
                             {% else %} justify-right {% endif %}">
                     {% if section.title is defined %}
-                        <p>{{ section.title }}</p>
+                        <p class="project--section-text-title">{{ section.title }}</p>
                     {% endif %}
                         <p>{{ section.text }}</p>
                 </div>
-            {% elseif section.Himage is defined %}
+            {% elseif section.kind == "image_horizontal" %}
             <div class="project--section-Himage">
-                <img class="fluidimg" src="{{ section.Himage }}" alt="">
+                {% responsiveImage section.image, "", projectFullImageSizes, "fluidimg" %}
             </div>
 
-            {% elseif section.doubleImage is defined %}
-                <div class="project--section-double-image">
-                    <img class="fluidimg" src="{{ section.doubleImage[0] }}" alt="">
-                    <img class="fluidimg" src="{{ section.doubleImage[1] }}" alt="">
+            {% elseif section.kind == "video_horizontal" %}
+            <div class="project--section-video">
+                <video
+                    class="project--section-video-media"
+                    controls
+                    playsinline
+                    preload="metadata"
+                    {% if section.poster is defined %}poster="{{ section.poster }}"{% endif %}>
+                    <source src="/assets/medias/video/{{ section.video }}">
+                </video>
+            </div>
+
+            {% elseif section.kind == "video_vertical" %}
+                <div class="project--section-Vvideo
+                            {% if section.justify=="left" %} justify-left 
+                            {% else %} justify-right {% endif %}">
+                    <video
+                        class="project--section-video-media"
+                        controls
+                        playsinline
+                        preload="metadata"
+                        {% if section.poster is defined %}poster="{{ section.poster }}"{% endif %}>
+                        <source src="/assets/medias/video/{{ section.video }}">
+                    </video>
                 </div>
 
-            {% elseif section.Vimage is defined %}
+            {% elseif section.kind == "double_image_vertical" %}
+                <div class="project--section-double-image">
+                    {% responsiveImage section.images[0], "", projectSplitImageSizes, "fluidimg" %}
+                    {% responsiveImage section.images[1], "", projectSplitImageSizes, "fluidimg" %}
+                </div>
+
+            {% elseif section.kind == "double_video_vertical" %}
+                <div class="project--section-double-video">
+                    {% for video in section.videos %}
+                        <video
+                            class="project--section-video-media"
+                            controls
+                            playsinline
+                            preload="metadata"
+                            {% if video.poster is defined %}poster="{{ video.poster }}"{% endif %}>
+                            <source src="/assets/medias/video/{{ video.video | default(video) }}">
+                        </video>
+                    {% endfor %}
+                </div>
+
+            {% elseif section.kind == "image_vertical" %}
                 <div class="project--section-Vimage
                             {% if section.justify=="left" %} justify-left 
                             {% else %} justify-right {% endif %}">
-                    <img class="fluidimg" src="{{ section.Vimage }}" alt="">
+                    {% responsiveImage section.image, "", projectColumnImageSizes, "fluidimg" %}
                 </div>
             {% endif %}
         {% endfor %}

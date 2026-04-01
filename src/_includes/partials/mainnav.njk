@@ -1,10 +1,13 @@
-<nav class ="mainnav--container">
+<nav class ="mainnav--container -anim__scrollHidden">
+
+    <a href="#mainnav" class="mainnav--burger mainnav--hidden" aria-label="Open navigation">open</a>
+
 
     <a href="/">
         <img class="mainnav--logo" src="/assets/medias/svg/MateStudio_Logo-eye.svg" alt="Mate Studio Logo"/>
     </a>
 
-    <div class="mainnav--nav">
+    <div class="mainnav--nav" id="mainnav">
         <ul class="mainnav--list">
             <li class="mainnav--item {% if page.url == '/' %} mainnav--item-active {% endif %}">
                 <p class="f-nav">></p>
@@ -12,7 +15,7 @@
             </li>
             <li class="mainnav--item">
                 <p class="f-nav">></p>
-                <a class="f-nav" href="/index.html#expertise">Expertise</a>
+                <a class="f-nav" href="/index.html#services">Services</a>
             </li>
             <li class="mainnav--item">
                 <p class="f-nav">></p>
@@ -20,7 +23,7 @@
             </li>
             <li class="mainnav--item">
                 <p class="f-nav">></p>
-                <a class="f-nav" href="/index.html#comprehension">Compréhension</a>
+                <a class="f-nav" href="/index.html#vision">Vision</a>
             </li>
         </ul>
         <ul class="mainnav--list">
@@ -35,7 +38,7 @@
         </ul>
 
         <ul class="mainnav--list">
-            <li class="mainnav--item {% if page.url == '/contact' %} mainnav--item-active {% endif %}">
+            <li class="mainnav--item {% if '/contact' in page.url %} mainnav--item-active {% endif %}">
                 <p class="f-nav">></p>
                 <a class="f-nav" href="/contact">Contact</a>
             </li>
@@ -53,5 +56,8 @@
             </li>
         </ul>
     </div>
+
+    <a href="#mainnav" class="mainnav--burger mainnav--burger-open" aria-label="Open navigation">open</a>
+    <a href="#mainnav-close" class="mainnav--burger mainnav--burger-close" aria-label="Close navigation">close</a>
 
 </nav>

@@ -3,20 +3,15 @@ TRUST SECTION
 ======================= */
 
 .trust--title {
-    grid-column: 2 / 6;
-    
-    padding-block-start: var(--spacing-6);
+    grid-column: 2 / 7;
+
 }
 
 .trust--grid {
-    grid-column: 2/10;
+    grid-column: 2/-2;
 
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-3) var(--spacing-3);
-
-    padding-block-start: var(--spacing-6);
-}
+    padding-block-start: var(--spacing-4);
+}   
 
 .trust--partner {
 
@@ -24,15 +19,46 @@ TRUST SECTION
     display: flex;
     flex-direction: column;
     gap: var(--spacing-1);
-    align-items: center;
+    align-items: stretch;
     
 }
 
 .trust--partner-images {
-    padding: var(--spacing-3);
     aspect-ratio: 3 / 2;
+    width: 100%;
+    min-width: 0;
+    height: auto;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+
+    flex: 1 1 auto;
+}
+
+.trust--partner-images img {
+    backdrop-filter: blur(2px) saturate(0) brightness(0.8);
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    padding: var(--spacing-1);
+    box-sizing: border-box;
+
+}
+
+.partners--contact {
+    grid-column: 2/-2;
+}
+
+@media all and (min-width: 1024px) {
+    .trust--grid {
+        padding-block-start: var(--spacing-6)
+    }
+    .trust--partner-images img {
+        padding: var(--spacing-4);
+    }
 }

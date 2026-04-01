@@ -1,41 +1,50 @@
 ---
 permalink: projects.html
+title: Projets
 ---
 
 {% extends "layouts/base.njk" %}
 
 {% block content %}
+
+{% set projectCardSizes = "(min-width: 1024px) calc((100vw - 312px) * 7 / 9 + 144px), calc((100vw - 52px) * 0.9)" %}
+
+<span id="all" class="projects--target" aria-hidden="true"></span>
+{% for service in collections.services %}
+    <span id="{{ service.data.tag }}" class="projects--target" aria-hidden="true"></span>
+{% endfor %}
     
-    <div class="projects--container grid-layout section">
+<div class="section grid-layout projects--title">
+    <h1>Tous Nos Projets</h1>
+</div>
+
+    <div class="projects--container grid-layout section"  id="projects">
         <div class="projects--filters">
             <h3 class="projects--filters-title">Filtres</h3>
             <ul class="projects--filters-list">
-                <li class="projects--filters-item">
-                    <h5>all</h5>
+                <li class="projects--filters-item" data-filter="all">
+                    <a href="#all">
+                        <h5>all</h5>
+                    </a>
                 </li>
-                <li class="projects--filters-item">
-                    <h5>web</h5>
-                </li>
-                <li class="projects--filters-item">
-                    <h5>mobile</h5>
-                </li>
-                <li class="projects--filters-item">
-                    <h5>design</h5>
-                </li>
-                <li class="projects--filters-item">
-                    <h5>branding</h5>
-                </li>
+                {% for service in collections.services %}
+                    <li class="projects--filters-item" data-filter="{{ service.data.tag }}">
+                        <a href="#{{ service.data.tag }}">
+                            <h5>{{ service.data.name }}</h5>
+                        </a>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
-        <div class="projects--content" id="projects">
+        <div class="projects--content">
             <ul class="projects--list">
                 {% for project in collections.projects %}
-                    <li class="projects--item">
-                        <a href="{{ project.url }}">
-                        <img src="{{project.data.cover}}" alt="" class="projects--item-img fluidimg">
-                        <div class="projects--item-content">
+                    <li class="projects--item" data-tags="{{ project.data.services | join(" ") }}">
+                        <a href="{{ project.url }}" class="grid-layout-desktop-7">
+                        {% responsiveImage project.data.cover, "", projectCardSizes, "projects--item-img fluidimg" %}
+                        <div class="projects--item-content grid-layout-7">
                             <h2 class="projects--item-title">{{project.data.title}}</h2>
-                            <p class="projects--item-description">{{project.data.description}}</p>
+                            <p class="projects--item-description fh-auto">{{project.data.description}}</p>
                             <p class="cta projects--item-more">En savoir plus</p>
                         </div>
                         </a>
@@ -46,5 +55,33 @@ permalink: projects.html
     </div>
    
     {% include "partials/partners.njk" %}
+
+    <style>
+        {% for service in collections.services %}
+            #all:target ~ .projects--container .projects--filters-item[data-filter="all"] h5, #projects:target .projects--filters-item[data-filter="all"] h5 {
+                text-decoration-line: underline;
+                text-decoration-thickness: 3px;
+                text-underline-offset: 3px;
+            }
+            #{{ service.data.tag }}:target ~ .projects--container .projects--filters-item[data-filter="{{ service.data.tag }}"] h5 {
+                text-decoration-line: underline;
+                text-decoration-thickness: 3px;
+                text-underline-offset: 3px;
+            }
+
+            #all:target ~ .projects--container .projects--content .projects--item {
+                display: block;
+            }
+
+            #{{ service.data.tag }}:target ~ .projects--container .projects--content .projects--item {
+                display: none;
+            }
+
+            #{{ service.data.tag }}:target ~ .projects--container .projects--content .projects--item[data-tags~="{{ service.data.tag }}"] {
+                display: block;
+            }
+
+        {% endfor %}
+    </style>
 
 {% endblock %}
