@@ -32,7 +32,7 @@ permalink: index.html
                         {% if loop.index0 < 1 %}
                             <li class="studio--projects-item">
                                 <a href="{{ project.url }}">
-                                    <img src="{{project.data.cover}}" alt="" class="studio--projects-item-img fluidimg">
+                                    {% responsiveImage project.data.cover, "", "(min-width: 1024px) 32vw, 100vw", "studio--projects-item-img fluidimg" %}
                                     <h5 class="studio--projects-item-title">{{project.data.title}}</h5>
                                     <p class="studio--projects-item-description">{{project.data.description}}</p>
                                 </a>
@@ -48,7 +48,7 @@ permalink: index.html
                         {% if loop.index0 >= 1 and loop.index0 < 3 %}
                             <li class="studio--projects-item">
                                 <a href="{{ project.url }}">
-                                    <img src="{{project.data.cover}}" alt="" class="studio--projects-item-img fluidimg">
+                                    {% responsiveImage project.data.cover, "", "(min-width: 1024px) 32vw, 100vw", "studio--projects-item-img fluidimg" %}
                                     <h5 class="studio--projects-item-title">{{project.data.title}}</h5>
                                     <p class="studio--projects-item-description">{{project.data.description}}</p>
                                 </a>
@@ -172,7 +172,7 @@ permalink: index.html
                 <p class="vision--text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 <div class="vision--content">
                     {% for collaborator in collections.collaborators %}
-                        <div class="vision--person" style="background-image: url('{{collaborator.data.profilePicture}}')">
+                        <div class="vision--person" style="background-image: {% responsiveBackground collaborator.data.profilePicture %};">
                             <h5 class="vision--person-name">{{collaborator.data.name}}</h5>
                         </div>
                     {% endfor %}

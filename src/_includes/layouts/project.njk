@@ -60,7 +60,7 @@ permalink: "projects/{{ page.fileSlug }}/"
                 </div>
             {% elseif section.kind == "image_horizontal" %}
             <div class="project--section-Himage">
-                <img class="fluidimg" src="{{ section.image }}" alt="">
+                {% responsiveImage section.image, "", "(min-width: 1024px) 80vw, 100vw", "fluidimg" %}
             </div>
 
             {% elseif section.kind == "video_horizontal" %}
@@ -91,8 +91,8 @@ permalink: "projects/{{ page.fileSlug }}/"
 
             {% elseif section.kind == "double_image_vertical" %}
                 <div class="project--section-double-image">
-                    <img class="fluidimg" src="{{ section.images[0] }}" alt="">
-                    <img class="fluidimg" src="{{ section.images[1] }}" alt="">
+                    {% responsiveImage section.images[0], "", "(min-width: 1024px) 40vw, 50vw", "fluidimg" %}
+                    {% responsiveImage section.images[1], "", "(min-width: 1024px) 40vw, 50vw", "fluidimg" %}
                 </div>
 
             {% elseif section.kind == "double_video_vertical" %}
@@ -113,7 +113,7 @@ permalink: "projects/{{ page.fileSlug }}/"
                 <div class="project--section-Vimage
                             {% if section.justify=="left" %} justify-left 
                             {% else %} justify-right {% endif %}">
-                    <img class="fluidimg" src="{{ section.image }}" alt="">
+                    {% responsiveImage section.image, "", "(min-width: 1024px) 42vw, 100vw", "fluidimg" %}
                 </div>
             {% endif %}
         {% endfor %}

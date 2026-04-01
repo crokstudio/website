@@ -43,7 +43,20 @@ a {
     color: inherit;
 }
 
+picture {
+    display: block;
+    max-width: 100%;
+}
+
+picture > img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .fluidimg {
+    display: block;
+    width: 100%;
     max-width: 100%;
     height: auto;
 }

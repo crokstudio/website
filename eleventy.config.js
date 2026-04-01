@@ -7,6 +7,57 @@ import Image from "@11ty/eleventy-img";
 //node path module
 import path from "path";
 
+const RESPONSIVE_IMAGE_WIDTHS = [320, 480, 768, 1024, 1440, 1920];
+const BACKGROUND_IMAGE_WIDTHS = [640, 1280];
+const RESPONSIVE_IMAGE_URL_PATH = "/assets/medias/img/optimized/";
+const RESPONSIVE_IMAGE_OUTPUT_DIR = "./dist/assets/medias/img/optimized/";
+
+const isRemoteImage = (src) => /^https?:\/\//.test(src);
+const getImageExtension = (src) => path.extname(src || "").toLowerCase();
+const isSvgImage = (src) => getImageExtension(src) === ".svg";
+
+const getImageSourcePath = (src) => {
+  if (isRemoteImage(src)) {
+    return src;
+  }
+
+  return path.join(process.cwd(), "src", String(src).replace(/^\//, ""));
+};
+
+const getResponsiveFormats = (src, { background = false } = {}) => {
+  if (background) {
+    return ["auto"];
+  }
+
+  const extension = getImageExtension(src);
+
+  if (extension === ".svg" || extension === ".webp" || extension === ".avif") {
+    return ["auto"];
+  }
+
+  return ["webp", "auto"];
+};
+
+const escapeAttribute = (value) => String(value).replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+
+const renderPlainImageTag = (src, attributes = {}) => {
+  const htmlAttributes = Object.entries(attributes)
+    .filter(([, value]) => value !== undefined && value !== null && value !== "")
+    .map(([key, value]) => `${key}="${escapeAttribute(value)}"`)
+    .join(" ");
+
+  return `<img src="${escapeAttribute(src)}"${htmlAttributes ? ` ${htmlAttributes}` : ""}>`;
+};
+
+const generateResponsiveMetadata = async (src, widths, options = {}) => {
+  return Image(getImageSourcePath(src), {
+    widths,
+    formats: getResponsiveFormats(src, options),
+    urlPath: RESPONSIVE_IMAGE_URL_PATH,
+    outputDir: RESPONSIVE_IMAGE_OUTPUT_DIR,
+  });
+};
+
 export default async function (eleventyConfig) {
   // Projects collection
   eleventyConfig.addCollection("projects", function (collectionApi) {
@@ -65,6 +116,61 @@ export default async function (eleventyConfig) {
     const d = (dateInput instanceof Date) ? dateInput : new Date(dateInput);
     if (isNaN(d)) return "";
     return d.getFullYear();
+  });
+
+  eleventyConfig.addNunjucksAsyncShortcode("responsiveImage", async (src, alt = "", sizes = "100vw", className = "", loading = "lazy", decoding = "async", fetchpriority = "") => {
+    if (!src) {
+      return "";
+    }
+
+    const imageAttributes = {
+      alt,
+      sizes,
+      loading,
+      decoding,
+      class: className,
+    };
+
+    if (fetchpriority) {
+      imageAttributes.fetchpriority = fetchpriority;
+    }
+
+    if (isSvgImage(src)) {
+      return renderPlainImageTag(src, {
+        alt,
+        loading,
+        decoding,
+        class: className,
+        fetchpriority,
+      });
+    }
+
+    const metadata = await generateResponsiveMetadata(src, RESPONSIVE_IMAGE_WIDTHS);
+    return Image.generateHTML(metadata, imageAttributes);
+  });
+
+  eleventyConfig.addNunjucksAsyncShortcode("responsiveBackground", async (src) => {
+    if (!src) {
+      return "";
+    }
+
+    if (isSvgImage(src)) {
+      return `url('${src}')`;
+    }
+
+    const metadata = await generateResponsiveMetadata(src, BACKGROUND_IMAGE_WIDTHS, { background: true });
+    const [format] = Object.keys(metadata);
+    const sources = metadata[format];
+
+    if (!sources.length) {
+      return `url('${src}')`;
+    }
+
+    if (sources.length === 1) {
+      return `url('${sources[0].url}')`;
+    }
+
+    return `image-set(url('${sources[0].url}') 1x, url('${sources[sources.length - 1].url}') 2x)`;
   });
 
   // avoid processing and watching files

@@ -39,7 +39,7 @@ title: Projets
                 {% for project in collections.projects %}
                     <li class="projects--item" data-tags="{{ project.data.services | join(" ") }}">
                         <a href="{{ project.url }}" class="grid-layout-desktop-7">
-                        <img src="{{project.data.cover}}" alt="" class="projects--item-img fluidimg">
+                        {% responsiveImage project.data.cover, "", "(min-width: 1024px) 58vw, 90vw", "projects--item-img fluidimg" %}
                         <div class="projects--item-content grid-layout-7">
                             <h2 class="projects--item-title">{{project.data.title}}</h2>
                             <p class="projects--item-description fh-auto">{{project.data.description}}</p>
