@@ -76,11 +76,13 @@
 
 .projects--item a picture {
     grid-column: 1 / -1;
+    aspect-ratio: 1/1;
 }
 
 .projects--item-img {
     object-fit: cover;
     width: 100%;
+    height: 100%;
 }
 
 .projects--item-content {
@@ -163,7 +165,7 @@
         gap: var(--spacing-grid-gap);
     }
 
-    .projects--item-img {
+    .projects--item a picture {
         aspect-ratio: 7 / 4;
     }
 

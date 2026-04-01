@@ -20,11 +20,12 @@ html {
 
 body {
     overflow-x: clip;
+    background-color: var(--color-white-100);
 }
 
+html:has(.mainnav--nav:target),
 body:has(.mainnav--nav:target) {
-    overflow-y: hidden;
-    max-height: 100vh;
+    overflow-y: clip;
 }
 
 [id] {

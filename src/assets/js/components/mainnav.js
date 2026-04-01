@@ -1,6 +1,62 @@
 const nav = document.querySelector(".mainnav--container");
 
 if (nav) {
+  const cssScrollHiddenClass = "-anim__scrollHidden";
+  const jsScrollHiddenClass = "-anim__scrollHidden-js";
+  let lastScrollY = window.scrollY;
+  let navScrollDirection = -1;
+  let navScrollTicking = false;
+
+  const setNavScrollDirection = (direction) => {
+    if (navScrollDirection === direction) {
+      return;
+    }
+
+    navScrollDirection = direction;
+    nav.style.setProperty("--js-scroll-direction", String(direction));
+  };
+
+  const updateNavVisibility = () => {
+    navScrollTicking = false;
+
+    const currentScrollY = window.scrollY;
+
+    if (window.location.hash === "#mainnav" || currentScrollY <= 0) {
+      setNavScrollDirection(-1);
+      lastScrollY = currentScrollY;
+      return;
+    }
+
+    if (currentScrollY > lastScrollY) {
+      setNavScrollDirection(1);
+    } else if (currentScrollY < lastScrollY) {
+      setNavScrollDirection(-1);
+    }
+
+    lastScrollY = currentScrollY;
+  };
+
+  const requestNavVisibilityUpdate = () => {
+    if (navScrollTicking) {
+      return;
+    }
+
+    navScrollTicking = true;
+    window.requestAnimationFrame(updateNavVisibility);
+  };
+
+  if (nav.classList.contains(cssScrollHiddenClass)) {
+    nav.classList.remove(cssScrollHiddenClass);
+    nav.classList.add(jsScrollHiddenClass);
+    nav.style.setProperty("--js-scroll-direction", String(navScrollDirection));
+
+    window.addEventListener("scroll", requestNavVisibilityUpdate, { passive: true });
+    window.addEventListener("resize", requestNavVisibilityUpdate);
+    window.addEventListener("hashchange", requestNavVisibilityUpdate);
+
+    requestNavVisibilityUpdate();
+  }
+
   const normalizePath = (pathname) => {
     const trimmedPath = pathname.replace(/index\.html$/, "").replace(/\/+$/, "");
     return trimmedPath === "" ? "/" : trimmedPath;

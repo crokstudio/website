@@ -1,0 +1,16 @@
+.-anim__scrollHidden,
+.-anim__scrollHidden-js {
+    transform: translateY(calc((-100% * var(--nav-scroll-direction, -1)) - 100.1%));
+    transition-property: transform;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+}
+
+.-anim__scrollHidden {
+    --nav-scroll-direction: var(--scroll-direction);
+    transition-delay: var(--nav-transition-duration);
+}
+
+.-anim__scrollHidden-js {
+    --nav-scroll-direction: var(--js-scroll-direction, -1);
+}
