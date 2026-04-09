@@ -51,6 +51,14 @@ const getResponsiveFormats = (src, { background = false } = {}) => {
 };
 
 const escapeAttribute = (value) => String(value).replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+const normalizeAttributeValue = (value, fallback) => {
+  if (value === undefined || value === null) {
+    return fallback;
+  }
+
+  const normalizedValue = String(value).trim();
+  return normalizedValue || fallback;
+};
 
 const renderPlainImageTag = (src, attributes = {}) => {
   const htmlAttributes = Object.entries(attributes)
@@ -136,11 +144,13 @@ export default async function (eleventyConfig) {
       return "";
     }
 
+    const resolvedLoading = normalizeAttributeValue(loading, "lazy");
+    const resolvedDecoding = normalizeAttributeValue(decoding, "async");
     const imageAttributes = {
       alt,
       sizes,
-      loading,
-      decoding,
+      loading: resolvedLoading,
+      decoding: resolvedDecoding,
       class: className,
     };
 
@@ -151,8 +161,8 @@ export default async function (eleventyConfig) {
     if (isSvgImage(src)) {
       return renderPlainImageTag(src, {
         alt,
-        loading,
-        decoding,
+        loading: resolvedLoading,
+        decoding: resolvedDecoding,
         class: className,
         fetchpriority,
       });
