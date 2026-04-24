@@ -123,11 +123,22 @@ permalink: "projects/{{ page.fileSlug }}/"
         {% endfor %}
     </div>
 
-    <div class="section grid-layout">
-        <div class="project--nextProject cta-Big">
-            <h3>Projet suivant</h3>
-        </div>
-    </div>
+    {% if collections.projects | length > 0 %}
+        {% for project in collections.projects %}
+            {% if project.url == page.url %}
+                {% set nextProject = collections.projects[0] %}
+                {% if not loop.last %}
+                    {% set nextProject = collections.projects[loop.index] %}
+                {% endif %}
+
+                <div class="section grid-layout">
+                    <a href="{{ nextProject.url }}" class="project--nextProject cta-Big" aria-label="Projet suivant : {{ nextProject.data.title }}">
+                        <h3>Projet suivant</h3>
+                    </a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
 
 
 {% endblock %}
