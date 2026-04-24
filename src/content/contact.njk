@@ -5,57 +5,62 @@ title: Contact
 
 {% extends "layouts/base.njk" %}
 
-{% block content %}
+    {% block content %}
 
     <div class="section grid-layout contact">
-        <h1 class="contact--title">Contact Us</h1>
+        <h1 class="contact--title">Nous contacter</h1>
         <p class="contact--location">Studio créatif belge<br>
         Liège — Bruxelles — Brabant wallon</p>
     </div>
 
     <div class="section grid-layout contact--infos">
-        <h3 class="contact--infos-text">We are available from Monday to Friday from 10:00 - 16:00. Use the form bellow or contact us by mail at crokstudio@gmail.com for any inquiries.</h3>
+        <h3 class="contact--infos-text">Nous sommes disponibles du lundi au vendredi, de 10h00 à 16h00. Utilisez le formulaire ci-dessous ou contactez-nous par mail à contact@matestudio.be pour toute demande.</h3>
     </div>
 
     <div class="section grid-layout contact--details">
-        <p class="contact--details-intro">We're in business to develop our culture, our community and its potential. Believing that the youth needs all the energy possible to shape a better tomorrow.</p>
+        <p class="contact--details-intro">Nous concevons des expériences créatives complètes, en prenant en charge chaque étape, de l’idée à la réalisation. Avec moins de friction, plus de cohérence et plus de liberté créative.</p>
         <p class="contact--details-mail">
-            <a href="mailto:crokstudio@gmail.com">crokstudio@gmail.com</a>
+            <a href="mailto:contact@matestudio.be">contact@matestudio.be</a>
         </p>
         <p class="contact--details-socials">
-            <a href="https://www.instagram.com/crokstudio/" class="contact--details-link">Instagram</a>
-            <a href="https://www.linkedin.com/company/crokstudio/" class="contact--details-link">Linkedin</a>
+            <a href="https://www.instagram.com/matestudio.be/" class="contact--details-link">Instagram</a>
+            <a href="" class="contact--details-link">Linkedin</a>
         </p>
     </div>
 
     <div class="section grid-layout contact--form">
-        <form action="" method="POST" class="contact--form-form">
+        <form action="/merci/" method="POST" name="contact" data-netlify="true" netlify-honeypot="bot-field" class="contact--form-form">
+            <input type="hidden" name="form-name" value="contact">
+            <input type="hidden" name="subject" value="Nouveau message depuis le formulaire de contact">
+            <p hidden>
+                <label>Ne remplissez pas ce champ si vous êtes humain : <input name="bot-field"></label>
+            </p>
             <span class="contact--form-line">
                 <h5 class="contact--form-name">Prénom</h5>
-                <input type="text" name="name" placeholder="Your name" required class="contact--form-input">
+                <input type="text" name="name" placeholder="Votre prénom" required class="contact--form-input">
             </span>
             <span class="contact--form-line">
                 <h5 class="contact--form-name">Nom</h5>
-                <input type="text" name="surname" placeholder="Your surname" required class="contact--form-input">
+                <input type="text" name="surname" placeholder="Votre nom" required class="contact--form-input">
             </span>
             <span class="contact--form-line">
                 <h5 class="contact--form-name">Email</h5>
-                <input type="email" name="_replyto" placeholder="Your email" required class="contact--form-input">
+                <input type="email" name="email" placeholder="Votre adresse e-mail" required class="contact--form-input">
             </span>
             <span class="contact--form-line">
                 <h5 class="contact--form-name">Objet</h5>
-                <input type="text" name="object" placeholder="Email Object" required class="contact--form-input">
+                <input type="text" name="object" placeholder="Objet de votre message" required class="contact--form-input">
             </span>
             <span class="contact--form-line">
                 <h5 class="contact--form-name">Message</h5>
-                <textarea name="message" placeholder="Your message" required class="contact--form-input"></textarea>
+                <textarea name="message" placeholder="Votre message" required class="contact--form-input"></textarea>
             </span>
             <button type="submit" class="contact--form-button" id="contact-form-submit"></button>
             <label for="contact-form-submit" class="cta-Big contact-form-send">
-                <h4>Send</h4>
+                <h4>Envoyer</h4>
                 </label>
         </form>
-        <div style="background-image: {% responsiveBackground '/assets/medias/img/mb_1.png' %};" class="contact--form-img fluidimg">
+        <div style="background-image: {% responsiveBackground '/assets/medias/img/team.png' %};" class="contact--form-img fluidimg">
         </div>
     </div>
 
