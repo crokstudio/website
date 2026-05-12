@@ -40,6 +40,10 @@ TRUST SECTION
     flex: 1 1 auto;
 }
 
+.trust--partner-images picture {
+    height: 100%;
+}
+
 .trust--partner-images img {
     backdrop-filter: blur(2px) saturate(0) brightness(0.8);
     height: 100%;
